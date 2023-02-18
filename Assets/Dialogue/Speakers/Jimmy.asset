@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbbd583c2e3455f468aaf157493f6d39, type: 3}
+  m_Name: Jimmy
+  m_EditorClassIdentifier: 
+  name: Jimmy
+  portrait: {fileID: 8400000, guid: 249b7870f25affe41b24b72a0739ea2e, type: 2}
+  voiceAudio: 

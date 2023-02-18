@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9342756aa342e46a4c64c014ca142a, type: 3}
+  m_Name: Rachel01
+  m_EditorClassIdentifier: 
+  sentences:
+  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+    text: Oh my God, you too, Rachel?
+  - speaker: {fileID: 11400000, guid: 08736b7ad61f92248a2a348d919b763b, type: 2}
+    text: Hey Richard, happy halloween! You like my costume? Don't need to answer.
+  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+    text: What happened with everyone? I thought I was being original.
+  - speaker: {fileID: 11400000, guid: 08736b7ad61f92248a2a348d919b763b, type: 2}
+    text: 'You don''t have to pretend you didn''t steal my idea. It''s pretty obvious. '
+  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+    text: What? I swear I wouldn't be wearing this if I knew half the island would
+      be wearing the same thing.
+  - speaker: {fileID: 11400000, guid: 08736b7ad61f92248a2a348d919b763b, type: 2}
+    text: Well, there's still time. Julie is buying and selling costumes in the usual
+      place. I hope there's something left for you.
+  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+    text: Thanks. I'll check it out.

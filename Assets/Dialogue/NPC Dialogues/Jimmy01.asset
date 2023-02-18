@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9342756aa342e46a4c64c014ca142a, type: 3}
+  m_Name: Jimmy01
+  m_EditorClassIdentifier: 
+  sentences:
+  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+    text: Happy halloween, Jimmy.
+  - speaker: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
+    text: I can't believe it.
+  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+    text: What?
+  - speaker: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
+    text: 'I can''t believe you had the guts to steal my costume idea. '
+  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+    text: Actually I didn't know about-
+  - speaker: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
+    text: You're lucky these blades are made of plastic, Richard. I assure you, this
+      act of treachery shall not be forgotten.
+  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+    text: Whatever you say, Jimmy.

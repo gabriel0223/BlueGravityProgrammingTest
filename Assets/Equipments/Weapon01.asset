@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9012ebbb36ce6a942b71cd40196f7213, type: 3}
+  m_Name: Weapon01
+  m_EditorClassIdentifier: 
+  name: Dagger
+  purchasePrice: 100
+  sellingPrice: 50
+  description: Looks so fake.
+  equipmentType: 4
+  equipmentSprite: {fileID: 21300000, guid: f8d916881a19b7a4a99ec74753414a40, type: 3}
