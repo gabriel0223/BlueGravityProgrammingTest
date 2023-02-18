@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private InputManager _inputManager;
+
     private Rigidbody2D rb;
     private Transform playerSprite;
     private PlayerFootsteps playerFootsteps;
@@ -15,7 +17,6 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The offset in the origin of the interaction raycast")]
     [SerializeField] private Vector2 interactionOriginOffset;
     
-    private Vector2 moveInput;
     [HideInInspector] public int directionFacing = 1;
     private bool inputLocked;
 
@@ -26,44 +27,40 @@ public class PlayerController : MonoBehaviour
         playerSprite = GetComponentInChildren<Animator>().transform;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        _inputManager.OnMove += HandleMovement;
+    }
+
+    private void HandleMovement(Vector2 moveInput)
+    {
+        if (inputLocked)
+        {
+            return;
+        }
+
+        Vector2 newSpeed = moveInput.normalized * speed;
+
+        rb.velocity = newSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (inputLocked) return;
-        
-        //get and normalize input
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * speed;
 
-        SpriteFlip();
+        //SpriteFlip();
         Interaction();
     }
 
-    private void FixedUpdate()
-    {
-        if (inputLocked) return;
-        
-        Movement();
-    }
-    
-    private void SpriteFlip()
-    {
-        if (moveInput.x == 0) return;
-
-        //flip player sprite according to input
-        playerSprite.localScale = new Vector2(moveInput.x > 0 ? 1 : -1, playerSprite.localScale.y);
-        directionFacing = (int)playerSprite.localScale.x;
-    }
-
-    private void Movement()
-    {
-        rb.velocity = moveInput;
-    }
+    // private void SpriteFlip()
+    // {
+    //     if (moveInput.x == 0) return;
+    //
+    //     //flip player sprite according to input
+    //     playerSprite.localScale = new Vector2(moveInput.x > 0 ? 1 : -1, playerSprite.localScale.y);
+    //     directionFacing = (int)playerSprite.localScale.x;
+    // }
 
     private void Interaction()
     {
