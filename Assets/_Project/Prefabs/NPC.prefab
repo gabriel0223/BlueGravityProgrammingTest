@@ -2413,9 +2413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _newInteractionIcon: {fileID: 6120812927908604835}
   _npcSprites: {fileID: 4505262768030746217}
-  dialogueList:
-  - {fileID: 11400000, guid: 07dc4064277a8d74ea029e82e60aca05, type: 2}
-  - {fileID: 11400000, guid: 262e76d2defef4a4a83612a0c544b5be, type: 2}
+  _portraitCamera: {fileID: 0}
+  _dialogueList: []
 --- !u!1001 &6120812928310544240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2477,6 +2476,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
+--- !u!1 &8394340808219455116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2346321051537762812, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
+  m_PrefabInstance: {fileID: 6120812928310544240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7123663213279542799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394340808219455116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526ab7f5e80148046b4749b2cfc79a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speakerData: {fileID: 0}
 --- !u!4 &8394340808219455152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}

@@ -10,12 +10,15 @@ public class NpcController : MonoBehaviour, IInteractive
 
     [SerializeField] private GameObject _newInteractionIcon;
     [SerializeField] private Transform _npcSprites;
+    [SerializeField] private Camera _portraitCamera;
 
     [Header("List of dialogues with this NPC")] 
     [SerializeField] private DialogueData[] _dialogueList;
 
     private Queue<DialogueData> _dialogueQueue;
     private bool _isInteracting;
+
+    public Camera PortraitCamera => _portraitCamera;
 
     private void Awake()
     {

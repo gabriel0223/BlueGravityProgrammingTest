@@ -473,7 +473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Example dialogue
+  m_text: Example text.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -500,8 +500,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -969,6 +969,8 @@ MonoBehaviour:
   _speakerText: {fileID: 5079158446523376101}
   _noSpeakerText: {fileID: 6543642360281449131}
   _timeBetweenLetters: 0.03
+  _shortPunctuationPause: 2.5
+  _longPunctuationPause: 7.5
   _lettersBetweenSounds: 3
 --- !u!1 &7557761048238740633
 GameObject:

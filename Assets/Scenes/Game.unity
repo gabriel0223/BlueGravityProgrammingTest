@@ -2128,6 +2128,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376438555}
   m_CullTransparentMesh: 1
+--- !u!1 &445881773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2346321051537762812, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
+  m_PrefabInstance: {fileID: 1870866543}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &448366493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2351,6 +2356,14 @@ PrefabInstance:
       propertyPath: _dialogueList.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 525637ff663a77747bc1ad1fe480b48b, type: 2}
+    - target: {fileID: 7123663213279542799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _speakerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 08736b7ad61f92248a2a348d919b763b, type: 2}
+    - target: {fileID: 8394340808219455116, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8394340808219455152, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.15
@@ -3146,6 +3159,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
   m_PrefabInstance: {fileID: 1870866543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &541496437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445881773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526ab7f5e80148046b4749b2cfc79a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speakerData: {fileID: 11400000, guid: a0a08abd670963f47ae7c00a5a0eac4a, type: 2}
 --- !u!1 &556137549
 GameObject:
   m_ObjectHideFlags: 0
@@ -6836,6 +6862,11 @@ Transform:
   m_Father: {fileID: 183811208}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.62755203}
+--- !u!1 &1169525092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2346321051537762812, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
+  m_PrefabInstance: {fileID: 2346321052704416803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1174629546
 GameObject:
   m_ObjectHideFlags: 0
@@ -22408,6 +22439,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
   m_PrefabInstance: {fileID: 2346321052704416803}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1318735334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169525092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526ab7f5e80148046b4749b2cfc79a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
 --- !u!1 &1348341559
 GameObject:
   m_ObjectHideFlags: 0
@@ -22455,6 +22499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _newInteractionIcon: {fileID: 1190536981}
   _npcSprites: {fileID: 159804517}
+  _portraitCamera: {fileID: 0}
   _dialogueList:
   - {fileID: 11400000, guid: 02d6f441b19e68749968df95ab1680ad, type: 2}
 --- !u!61 &1349032839
@@ -45045,6 +45090,14 @@ PrefabInstance:
       propertyPath: _dialogueList.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: adda452f0eda0d94a94921ea514f2939, type: 2}
+    - target: {fileID: 7123663213279542799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _speakerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 80e2d45e3662655469ff18dff1345618, type: 2}
+    - target: {fileID: 8394340808219455116, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8394340808219455152, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.15
@@ -56346,6 +56399,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portrait Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2346321051537762812, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
 --- !u!1 &1875705295
@@ -56709,6 +56766,14 @@ PrefabInstance:
       propertyPath: _dialogueList.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: beeb5f04885ed26499336c582f215ec2, type: 2}
+    - target: {fileID: 7123663213279542799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _speakerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
+    - target: {fileID: 8394340808219455116, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8394340808219455153, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_TargetTexture
       value: 
@@ -58219,6 +58284,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2346321051537762812, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
 --- !u!1001 &3163862342631804871
@@ -58485,6 +58554,14 @@ PrefabInstance:
       propertyPath: _dialogueList.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 07dc4064277a8d74ea029e82e60aca05, type: 2}
+    - target: {fileID: 7123663213279542799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _speakerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f54c1cacd8efd94bacb66b649f73240, type: 2}
+    - target: {fileID: 8394340808219455116, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8394340808219455153, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_TargetTexture
       value: 

@@ -16,7 +16,14 @@ public class DialogueView : MonoBehaviour
     [SerializeField] private GameObject _dialogueCompleteIcon;
     [SerializeField] private TMP_Text _speakerText;
     [SerializeField] private TMP_Text _noSpeakerText;
+
+    [Space]
+
     [SerializeField] private float _timeBetweenLetters;
+    [Tooltip("Intervals between periods, interrogation and exclamation points")]
+    [SerializeField] private float _shortPunctuationPause;
+    [Tooltip("Intervals between commas")]
+    [SerializeField] private float _longPunctuationPause;
     [Tooltip("How many letters will be printed between the voice sounds")]
     [SerializeField] public int _lettersBetweenSounds;
 
@@ -24,26 +31,15 @@ public class DialogueView : MonoBehaviour
     private Transform _portraitCamera;
     private DialogueData _dialogueData;
     private String[] _sentences;
-    private int _index;
+    private string _currentSentence;
+    private int _sentenceIndex;
     private Coroutine _typingCoroutine;
     private Action _onComplete;
 
     // Start is called before the first frame update
     void Start()
     {
-        List<String>sentencesList = new List<string>();
-
-        foreach (var sentence in _dialogueData.sentences)
-        {
-            sentencesList.Add(sentence.text);
-        }
-
-        _sentences = sentencesList.ToArray();
-        
-        UpdateDialogueFormat();
-
-        _textBeingDisplayed.text = "";
-        _typingCoroutine = StartCoroutine(Type());
+        Initialize();
     }
 
     private void OnDestroy()
@@ -73,47 +69,78 @@ public class DialogueView : MonoBehaviour
         _inputManager.OnConfirm += HandleConfirm;
     }
 
-    private void HandleConfirm()
+    private void Initialize()
     {
-        Debug.Log("confirmei");
-        NextSentence();
+        _sentences = _dialogueData.sentences.Select(sentence => sentence.text).ToArray();
+        _currentSentence = _sentences[0];
+        
+        UpdateDialogueFormat();
+
+        _textBeingDisplayed.text = "";
+        _typingCoroutine = StartCoroutine(TypeSentence(_currentSentence));
     }
 
-    IEnumerator Type()
+    private void HandleConfirm()
     {
-        int count = 0;
+        bool isSentenceFullyPrinted = _textBeingDisplayed.text == _currentSentence;
+        bool isLastSentence = _sentenceIndex >= _sentences.Length - 1;
+
+        if (isSentenceFullyPrinted)
+        {
+            if (!isLastSentence)
+            {
+                GoToNextSentence();
+            }
+            else
+            {
+                CloseDialogueBox();
+            }
+        }
+        else
+        {
+            SkipTextType();
+        }
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        int lettersTypedCount = 0;
+
+        SpeakerData speaker = _dialogueData.sentences[_sentenceIndex].speakerData;
+        string speakerVoice = speaker == null || speaker.VoiceAudio.Equals("")? "DefaultVoice" : speaker.VoiceAudio;
+
         _dialogueCompleteIcon.SetActive(false);
         
-        foreach (char letter in _sentences[_index])
+        foreach (char letter in sentence)
         {
             _textBeingDisplayed.text += letter;
-            count++;
+            lettersTypedCount++;
 
             if (char.IsLetterOrDigit(letter))
             {
-                if (count % _lettersBetweenSounds == 0) //if enough letters were printed, play voice sound
+                if (lettersTypedCount % _lettersBetweenSounds == 0) //if enough letters were printed, play voice sound
                 {
-                    var speaker = _dialogueData.sentences[_index].speakerData;
-                    string speakerVoice = speaker == null || speaker.VoiceAudio.Equals("") ? "DefaultVoice" : speaker.VoiceAudio;
-
                     AudioManager.instance.Play(speakerVoice);
                 }
             }
             else
             {
-                if (count == _sentences[_index][_sentences[_index].Length - 1]) //if it's the last letter, no need to make a pause
+                bool isLastLetter = lettersTypedCount == sentence.Length - 1;
+
+                if (isLastLetter)
+                {
                     continue;
-                
-                //PAUSE TYPING
+                }
+
                 switch (letter)
                 {
                     case '?':
                     case '.':
                     case '!':
-                        yield return new WaitForSeconds(_timeBetweenLetters * 7.5f);
+                        yield return new WaitForSeconds(_timeBetweenLetters * _longPunctuationPause);
                         break;
                     case ',':
-                        yield return new WaitForSeconds(_timeBetweenLetters * 2.5f);
+                        yield return new WaitForSeconds(_timeBetweenLetters * _shortPunctuationPause);
                         break;
                 }
             }
@@ -123,74 +150,69 @@ public class DialogueView : MonoBehaviour
         _dialogueCompleteIcon.SetActive(true);
     }
 
-    private void NextSentence()
+    private void GoToNextSentence()
     {
-        if (_textBeingDisplayed.text == _sentences[_index]) //if the text is 100% printed on screen
-        {
-            if (_index < _sentences.Length - 1) //and if there are still sentences to read
-            {
-                _index++; //go to the next sentence
-                UpdateDialogueFormat();
-                _textBeingDisplayed.text = "";
-                _typingCoroutine = StartCoroutine(Type());
-            }
-            else
-            {
-                CloseDialogueBox();
-            }
-        }
-        else
-        {
-            _textBeingDisplayed.text = _sentences[_index];
-            _dialogueCompleteIcon.SetActive(true);
-            StopCoroutine(_typingCoroutine);
-        }
+        _sentenceIndex++;
+
+        _currentSentence = _sentences[_sentenceIndex];
+        UpdateDialogueFormat();
+        _textBeingDisplayed.text = "";
+        _typingCoroutine = StartCoroutine(TypeSentence(_currentSentence));
+    }
+
+    private void SkipTextType()
+    {
+        _textBeingDisplayed.text = _currentSentence;
+        _dialogueCompleteIcon.SetActive(true);
+        StopCoroutine(_typingCoroutine);
     }
 
     private void UpdateDialogueFormat()
     {
-        if (_dialogueData.sentences[_index].speakerData == null) //if there's no speaker
+        DialogueData.Sentence currentSentenceData = _dialogueData.sentences[_sentenceIndex];
+        bool isThereASpeaker = currentSentenceData.speakerData != null;
+        string speakerName = currentSentenceData.speakerData.Name;
+
+        if (isThereASpeaker)
         {
-            SpeakerGUISetActive(false);
+            _speakerNameText.SetText(speakerName);
+
+            SetSpeakerGUIActive(true);
+            StartCoroutine(TakePortraitPhoto());
         }
         else
         {
-            SpeakerGUISetActive(true);
-            
-            //set names, portraits and voices
-            _speakerNameText.SetText(_dialogueData.sentences[_index].speakerData.Name);
-            StartCoroutine(TakePortraitPhoto());
+            SetSpeakerGUIActive(false);
         }
     }
 
-    private void SpeakerGUISetActive(bool active)
+    private void SetSpeakerGUIActive(bool value)
     {
-        _portrait.transform.parent.gameObject.SetActive(active);
-        _speakerNameText.transform.parent.gameObject.SetActive(active);
-        _speakerText.gameObject.SetActive(active);
-        
-        _noSpeakerText.gameObject.SetActive(!active); //text formated to no speakers
+        _portrait.transform.parent.gameObject.SetActive(value);
+        _speakerNameText.transform.parent.gameObject.SetActive(value);
 
-        _textBeingDisplayed = active ? _speakerText : _noSpeakerText; //text being autotyped is set to "Speaker" or "No Speaker"
+        _speakerText.gameObject.SetActive(value);
+        _noSpeakerText.gameObject.SetActive(!value);
+
+        _textBeingDisplayed = value? _speakerText : _noSpeakerText;
     }
 
     IEnumerator TakePortraitPhoto()
     {
-        //get portrait camera of the current speaker
-        var portraitCams = FindObjectsOfType<Camera>(true).Where(cam => cam.gameObject.CompareTag("PortraitCamera"));
+        SpeakerData currentSpeaker = _dialogueData.sentences[_sentenceIndex].speakerData;
 
-        var speakerPortraitCam =
-            portraitCams.First(cam => cam.transform.parent.name.Contains(_dialogueData.sentences[_index].speakerData.Name)).gameObject;
-        
-        speakerPortraitCam.SetActive(true);
+        PortraitCamera portraitCamera = FindObjectsOfType<PortraitCamera>(true)
+            .First(cam => cam.SpeakerData.Equals(currentSpeaker));
+
+        portraitCamera.gameObject.SetActive(true);
 
         yield return null;
         
-        speakerPortraitCam.SetActive(false);
+        portraitCamera.gameObject.SetActive(false);
     }
 
     private void CloseDialogueBox()
     {
-        _textbox.Shrink(() => Destroy(gameObject)); //close dialogue box
+        _textbox.Shrink(() => Destroy(gameObject));
     }
 }

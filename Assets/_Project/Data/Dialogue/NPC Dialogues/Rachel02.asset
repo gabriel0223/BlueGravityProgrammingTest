@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - speakerData: {fileID: 11400000, guid: 08736b7ad61f92248a2a348d919b763b, type: 2}
-    text: Stop walking with your knife like that. Even though it's plastic, you might
-      hurt yourself.
+    text: Stop walking around with your knife like that. Even though it's plastic,
+      you could hurt yourself.
