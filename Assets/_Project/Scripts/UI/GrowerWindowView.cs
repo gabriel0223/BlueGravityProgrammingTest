@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class GrowerWindow : MonoBehaviour
+public class GrowerWindowView : MonoBehaviour
 {
-    private Vector3 originalScale;
     [SerializeField] private AnimationCurve growEaseCurve;
     [SerializeField] private AnimationCurve shrinkEaseCurve;
     [SerializeField] private float animationDuration;
 
+    private Vector3 _originalScale;
+
     private void Awake()
     {
-        originalScale = transform.localScale;
+        _originalScale = transform.localScale;
         transform.localScale = Vector3.zero;
     }
 
@@ -22,20 +23,14 @@ public class GrowerWindow : MonoBehaviour
         Grow();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Grow(TweenCallback callback)
     {
-        transform.DOScale(originalScale, animationDuration).SetEase(growEaseCurve).OnComplete(callback);
+        transform.DOScale(_originalScale, animationDuration).SetEase(growEaseCurve).OnComplete(callback);
     }
     
     public void Grow()
     {
-        transform.DOScale(originalScale, animationDuration).SetEase(growEaseCurve);
+        transform.DOScale(_originalScale, animationDuration).SetEase(growEaseCurve);
     }
 
     public void Shrink(TweenCallback callback)

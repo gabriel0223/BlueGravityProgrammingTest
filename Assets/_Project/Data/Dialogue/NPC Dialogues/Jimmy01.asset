@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jimmy01
   m_EditorClassIdentifier: 
   sentences:
-  - speakerData: {fileID: 11400000, guid: 4f54c1cacd8efd94bacb66b649f73240, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: Happy halloween, Jimmy.
   - speakerData: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
     text: I can't believe it.

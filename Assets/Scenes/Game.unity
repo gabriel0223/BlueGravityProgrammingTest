@@ -20672,7 +20672,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -43412,8 +43412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84136ed80168bc946ba92ef2f84ae2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputManager: {fileID: 6705440282894533168}
   _canvas: {fileID: 1227931979}
-  _dialogueControllerPrefab: {fileID: 8742360948552227611, guid: eedb13a19ecdde044a4adf7315a59a9e, type: 3}
+  _dialogueViewPrefab: {fileID: 6543642361440104773, guid: 6f4973cda82f50b4fa9aa77de61ed5e2, type: 3}
 --- !u!4 &1431056970
 Transform:
   m_ObjectHideFlags: 0
@@ -46037,7 +46038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.487033, y: -0.31951427, z: -10}
+  m_LocalPosition: {x: -8.96, y: -0.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58172,7 +58173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58632,6 +58633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699d97c9b9fa75d4d8f258948c233b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dialogueSystem: {fileID: 1431056969}
 --- !u!114 &6705440282894533169
 MonoBehaviour:
   m_ObjectHideFlags: 0

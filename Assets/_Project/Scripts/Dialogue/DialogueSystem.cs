@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class DialogueSystem : MonoBehaviour
 {
+    public event Action OnStartDialogue;
+    public event Action OnEndDialogue;
+
+    [SerializeField] private InputManager _inputManager;
     [SerializeField] private Transform _canvas;
-    [SerializeField] private DialogueController _dialogueControllerPrefab;
+    [SerializeField] private DialogueView _dialogueViewPrefab;
 
     public static DialogueSystem instance;
     private IInteractive _currentInteraction;
@@ -30,17 +34,21 @@ public class DialogueSystem : MonoBehaviour
 
         _currentInteraction = npc;
 
-        DialogueController newDialogueController = Instantiate(_dialogueControllerPrefab, _canvas.transform);
+        DialogueView newDialogueView = Instantiate(_dialogueViewPrefab, _canvas.transform);
 
-        newDialogueController.dialogueData = dialogueData;
-        newDialogueController.OnComplete = EndNpcDialogue;
+        newDialogueView.SetDialogueData(dialogueData);
+        newDialogueView.SetOnComplete(EndNpcDialogue);
+        newDialogueView.SetInputManager(_inputManager);
+
+        OnStartDialogue?.Invoke();
     }
 
     private void EndNpcDialogue()
     {
         _currentInteraction.OnInteractionComplete();
-
         _currentInteraction = null;
+
+        OnEndDialogue?.Invoke();
     }
 
     public void StartDialogue(NpcController npc, DialogueData dialogueData)
@@ -49,9 +57,9 @@ public class DialogueSystem : MonoBehaviour
         UIManager.instance.interactingWithUI = true;
         UIManager.instance.uiState = UIManager.UIStates.Talking;
 
-        var newDialogueController = Instantiate(_dialogueControllerPrefab, _canvas.transform);
+        var newDialogueController = Instantiate(_dialogueViewPrefab, _canvas.transform);
 
-        newDialogueController.dialogueData = dialogueData;
+        newDialogueController.SetDialogueData(dialogueData);
     }
     
     public void StartInteraction(Interactive interactiveObject,DialogueData dialogueData)
@@ -60,9 +68,8 @@ public class DialogueSystem : MonoBehaviour
         UIManager.instance.interactingWithUI = true;
         UIManager.instance.uiState = UIManager.UIStates.Talking;
 
-        var newDialogueController = Instantiate(_dialogueControllerPrefab, _canvas.transform);
+        var newDialogueController = Instantiate(_dialogueViewPrefab, _canvas.transform);
 
-        newDialogueController.dialogueData = dialogueData;
-        newDialogueController.objectInteracting = interactiveObject;
+        newDialogueController.SetDialogueData(dialogueData);
     }
 }
