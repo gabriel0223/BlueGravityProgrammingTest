@@ -10,15 +10,11 @@ public class NpcController : MonoBehaviour, IInteractive
 
     [SerializeField] private GameObject _newInteractionIcon;
     [SerializeField] private Transform _npcSprites;
-    [SerializeField] private Camera _portraitCamera;
 
     [Header("List of dialogues with this NPC")] 
     [SerializeField] private DialogueData[] _dialogueList;
 
     private Queue<DialogueData> _dialogueQueue;
-    private bool _isInteracting;
-
-    public Camera PortraitCamera => _portraitCamera;
 
     private void Awake()
     {
@@ -29,12 +25,10 @@ public class NpcController : MonoBehaviour, IInteractive
 
     public void Interact(Transform playerTransform)
     {
-        if (_dialogueQueue.Count == 0 || _isInteracting)
+        if (_dialogueQueue.Count == 0)
         {
             return;
         }
-
-        _isInteracting = true;
 
         FlipSpriteToFacePlayer(playerTransform);
         SetInteractionSign(false);
@@ -60,8 +54,6 @@ public class NpcController : MonoBehaviour, IInteractive
 
     public void OnInteractionComplete()
     {
-        _isInteracting = false;
-
         UpdateInteractionSign();
     }
 }

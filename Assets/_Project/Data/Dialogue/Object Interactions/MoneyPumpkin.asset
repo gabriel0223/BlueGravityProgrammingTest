@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d9342756aa342e46a4c64c014ca142a, type: 3}
-  m_Name: AltPumpkin01
+  m_Name: MoneyPumpkin
   m_EditorClassIdentifier: 
   sentences:
   - speaker: {fileID: 0}
-    text: There's nothing in this one.
+    text: I found some coins inside it! Cool!

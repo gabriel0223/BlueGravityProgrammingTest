@@ -12,18 +12,19 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private Transform _canvas;
     [SerializeField] private DialogueView _dialogueViewPrefab;
 
-    public static DialogueSystem instance;
     private IInteractive _currentInteraction;
 
     // Start is called before the first frame update
     void Start()
     {
         NpcController.OnDialogueStart += StartNpcDialogue;
+        InteractiveObjectController.OnDialogueStart += StartInteractionDialogue;
     }
 
     private void OnDestroy()
     {
         NpcController.OnDialogueStart -= StartNpcDialogue;
+        InteractiveObjectController.OnDialogueStart -= StartInteractionDialogue;
     }
 
     private void StartNpcDialogue(NpcController npc, DialogueData dialogueData)
@@ -37,39 +38,34 @@ public class DialogueSystem : MonoBehaviour
         DialogueView newDialogueView = Instantiate(_dialogueViewPrefab, _canvas.transform);
 
         newDialogueView.SetDialogueData(dialogueData);
-        newDialogueView.SetOnComplete(EndNpcDialogue);
+        newDialogueView.SetOnComplete(EndDialogue);
         newDialogueView.SetInputManager(_inputManager);
 
         OnStartDialogue?.Invoke();
     }
 
-    private void EndNpcDialogue()
+    private void StartInteractionDialogue(InteractiveObjectController obj, DialogueData dialogueData)
+    {
+        if (UIManager.instance.interactingWithUI) return;
+        UIManager.instance.interactingWithUI = true;
+        UIManager.instance.uiState = UIManager.UIStates.Talking;
+
+        _currentInteraction = obj;
+
+        DialogueView newDialogueView = Instantiate(_dialogueViewPrefab, _canvas.transform);
+
+        newDialogueView.SetDialogueData(dialogueData);
+        newDialogueView.SetOnComplete(EndDialogue);
+        newDialogueView.SetInputManager(_inputManager);
+
+        OnStartDialogue?.Invoke();
+    }
+
+    private void EndDialogue()
     {
         _currentInteraction.OnInteractionComplete();
         _currentInteraction = null;
 
         OnEndDialogue?.Invoke();
-    }
-
-    public void StartDialogue(NpcController npc, DialogueData dialogueData)
-    {
-        if (UIManager.instance.interactingWithUI) return;
-        UIManager.instance.interactingWithUI = true;
-        UIManager.instance.uiState = UIManager.UIStates.Talking;
-
-        var newDialogueController = Instantiate(_dialogueViewPrefab, _canvas.transform);
-
-        newDialogueController.SetDialogueData(dialogueData);
-    }
-    
-    public void StartInteraction(Interactive interactiveObject,DialogueData dialogueData)
-    {
-        if (UIManager.instance.interactingWithUI) return;
-        UIManager.instance.interactingWithUI = true;
-        UIManager.instance.uiState = UIManager.UIStates.Talking;
-
-        var newDialogueController = Instantiate(_dialogueViewPrefab, _canvas.transform);
-
-        newDialogueController.SetDialogueData(dialogueData);
     }
 }

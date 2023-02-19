@@ -171,10 +171,10 @@ public class DialogueView : MonoBehaviour
     {
         DialogueData.Sentence currentSentenceData = _dialogueData.sentences[_sentenceIndex];
         bool isThereASpeaker = currentSentenceData.speakerData != null;
-        string speakerName = currentSentenceData.speakerData.Name;
 
         if (isThereASpeaker)
         {
+            string speakerName = currentSentenceData.speakerData.Name;
             _speakerNameText.SetText(speakerName);
 
             SetSpeakerGUIActive(true);
