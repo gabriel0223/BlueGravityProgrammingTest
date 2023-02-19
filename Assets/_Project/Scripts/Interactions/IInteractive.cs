@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface IInteractive
 {
-    public void Interact();
+    public void Interact(Transform playerTransform);
+
+    public void OnInteractionComplete();
 }

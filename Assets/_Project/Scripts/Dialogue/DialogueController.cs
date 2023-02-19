@@ -9,9 +9,9 @@ using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
-    
-    [HideInInspector] public SO_Dialogue dialogue;
-    [HideInInspector] public NPC npcInteracting;
+    public Action OnComplete;
+
+    [HideInInspector] public DialogueData dialogueData;
     [HideInInspector] public Interactive objectInteracting;
     [Header("REFERENCES")]
     [SerializeField] private RawImage portrait;
@@ -20,7 +20,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private GameObject dialogueCompleteIcon;
     [SerializeField] private TextMeshProUGUI noSpeakerText, speakerText;
     private Transform portraitCamera;
-    private PlayerController player;
+    private PlayerMovement player;
     private GrowerWindow textbox;
 
     [Space(10)]
@@ -32,7 +32,6 @@ public class DialogueController : MonoBehaviour
     [Tooltip("How many letters will be printed between the voice sounds")]
     public int lettersBetweenVoice;
     private Coroutine typing;
-    
 
     private void Awake()
     {
@@ -42,16 +41,13 @@ public class DialogueController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         player.LockInput(true);
         textbox = GetComponentInChildren<GrowerWindow>();
 
-        if (npcInteracting != null) 
-            npcInteracting.SetInteractionSign(false);
-        
         List<String>sentencesList = new List<string>();
 
-        foreach (var sentence in dialogue.sentences)
+        foreach (var sentence in dialogueData.sentences)
         {
             sentencesList.Add(sentence.text);
         }
@@ -75,12 +71,11 @@ public class DialogueController : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (npcInteracting != null) 
-            npcInteracting.UpdateInteractionSign();
-        
         player.LockInput(false);
         UIManager.instance.interactingWithUI = false;
         UIManager.instance.uiState = UIManager.UIStates.Idle;
+
+        OnComplete?.Invoke();
     }
 
     IEnumerator Type()
@@ -97,8 +92,8 @@ public class DialogueController : MonoBehaviour
             {
                 if (count % lettersBetweenVoice == 0) //if enough letters were printed, play voice sound
                 {
-                    var speaker = dialogue.sentences[index].speaker;
-                    string speakerVoice = speaker == null || speaker.voiceAudio.Equals("") ? "DefaultVoice" : speaker.voiceAudio;
+                    var speaker = dialogueData.sentences[index].speakerData;
+                    string speakerVoice = speaker == null || speaker.VoiceAudio.Equals("") ? "DefaultVoice" : speaker.VoiceAudio;
 
                     AudioManager.instance.Play(speakerVoice);
                 }
@@ -153,7 +148,7 @@ public class DialogueController : MonoBehaviour
 
     private void UpdateDialogueFormat()
     {
-        if (dialogue.sentences[index].speaker == null) //if there's no speaker
+        if (dialogueData.sentences[index].speakerData == null) //if there's no speaker
         {
             SpeakerGUISetActive(false);
         }
@@ -162,7 +157,7 @@ public class DialogueController : MonoBehaviour
             SpeakerGUISetActive(true);
             
             //set names, portraits and voices
-            speakerName.SetText(dialogue.sentences[index].speaker.name);
+            speakerName.SetText(dialogueData.sentences[index].speakerData.Name);
             StartCoroutine(TakePortraitPhoto());
         }
     }
@@ -184,7 +179,7 @@ public class DialogueController : MonoBehaviour
         var portraitCams = FindObjectsOfType<Camera>(true).Where(cam => cam.gameObject.CompareTag("PortraitCamera"));
 
         var speakerPortraitCam =
-            portraitCams.First(cam => cam.transform.parent.name.Contains(dialogue.sentences[index].speaker.name)).gameObject;
+            portraitCams.First(cam => cam.transform.parent.name.Contains(dialogueData.sentences[index].speakerData.Name)).gameObject;
         
         speakerPortraitCam.SetActive(true);
 

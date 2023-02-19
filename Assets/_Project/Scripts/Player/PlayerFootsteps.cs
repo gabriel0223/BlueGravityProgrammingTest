@@ -12,18 +12,6 @@ public class PlayerFootsteps : MonoBehaviour
     [SerializeField] private string[] grassFootstepsAudios;
     [SerializeField] private string[] dirtFootstepsAudios;
     [HideInInspector] public Surfaces currentSurface = Surfaces.Dirt;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PlayFootstepSound()
     {

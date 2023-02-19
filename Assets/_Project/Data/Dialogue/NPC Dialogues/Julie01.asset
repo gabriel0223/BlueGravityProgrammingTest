@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: Julie01
   m_EditorClassIdentifier: 
   sentences:
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: Good morning, Julie! Nice costume.
-  - speaker: {fileID: 11400000, guid: a0a08abd670963f47ae7c00a5a0eac4a, type: 2}
+  - speakerData: {fileID: 11400000, guid: a0a08abd670963f47ae7c00a5a0eac4a, type: 2}
     text: What do you want? You already have your costume.
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: Yeah, I know, but I gave it some thought and maybe I don't like rogue warriors
       as much as you guys.
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: Do you have anything else?
-  - speaker: {fileID: 11400000, guid: a0a08abd670963f47ae7c00a5a0eac4a, type: 2}
+  - speakerData: {fileID: 11400000, guid: a0a08abd670963f47ae7c00a5a0eac4a, type: 2}
     text: Only rogue warriors.
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: Seriously? Not even Spider-Man, Darth Vader? I'll take a skeleton shirt!
-  - speaker: {fileID: 11400000, guid: a0a08abd670963f47ae7c00a5a0eac4a, type: 2}
+  - speakerData: {fileID: 11400000, guid: a0a08abd670963f47ae7c00a5a0eac4a, type: 2}
     text: Only rogue warriors. Buy something at the cart or leave.
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: Fine.

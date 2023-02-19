@@ -343,18 +343,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000010141028922, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
   m_PrefabInstance: {fileID: 1263643558}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &51628911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!95 &51628911 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95000012403032898, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+  m_PrefabInstance: {fileID: 1263643558}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51628905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a43bdbba6aa2fc41950e401bdc63067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &52528651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,7 +1980,7 @@ Transform:
   - {fileID: 448366494}
   - {fileID: 1530980271}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &343508123
 GameObject:
@@ -2286,6 +2279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rachel
       objectReference: {fileID: 0}
+    - target: {fileID: 6120812929102631785, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6120812929102631798, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2335,11 +2332,23 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: dialogueList.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 79cc0eb8fed086e4d847b8a73884b37c, type: 2}
     - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: dialogueList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 525637ff663a77747bc1ad1fe480b48b, type: 2}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 79cc0eb8fed086e4d847b8a73884b37c, type: 2}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 525637ff663a77747bc1ad1fe480b48b, type: 2}
     - target: {fileID: 8394340808219455152, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
@@ -3125,8 +3134,13 @@ Transform:
   - {fileID: 1365226264}
   - {fileID: 1237202188}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &528184223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6120812927908604835, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+  m_PrefabInstance: {fileID: 6120812928474378439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &541496434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
@@ -3319,7 +3333,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &610811246
 GameObject:
@@ -6031,7 +6045,7 @@ Transform:
   - {fileID: 1466766150}
   - {fileID: 1370036419}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1003127422 stripped
 SpriteRenderer:
@@ -6464,7 +6478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106575600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23, y: 0.13, z: 0}
+  m_LocalPosition: {x: -0.23, y: 0, z: 0}
   m_LocalScale: {x: 4.6968746, y: 1.6125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6673,7 +6687,7 @@ Transform:
   m_Children:
   - {fileID: 237997305}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1126638090
 MonoBehaviour:
@@ -6980,7 +6994,7 @@ GameObject:
   - component: {fileID: 1195114096}
   - component: {fileID: 1195114095}
   - component: {fileID: 1195114094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halloween Pumpkin (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7029,8 +7043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c156573a059d394198d5fc257991403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: c3c850b43e6726c42b0f429b41562772, type: 2}
-  interactedDialogue: {fileID: 11400000, guid: c3c850b43e6726c42b0f429b41562772, type: 2}
+  dialogueData: {fileID: 0}
+  interactedDialogueData: {fileID: 0}
   triggerEvent: 0
   interactionEvent:
     m_PersistentCalls:
@@ -20703,7 +20717,7 @@ RectTransform:
   - {fileID: 343508124}
   - {fileID: 99835148}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -20727,7 +20741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.7
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20822,7 +20836,7 @@ GameObject:
   - component: {fileID: 1237202191}
   - component: {fileID: 1237202190}
   - component: {fileID: 1237202189}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halloween Pumpkin (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20871,8 +20885,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c156573a059d394198d5fc257991403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: c3c850b43e6726c42b0f429b41562772, type: 2}
-  interactedDialogue: {fileID: 11400000, guid: c3c850b43e6726c42b0f429b41562772, type: 2}
+  dialogueData: {fileID: 0}
+  interactedDialogueData: {fileID: 0}
   triggerEvent: 0
   interactionEvent:
     m_PersistentCalls:
@@ -21370,7 +21384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010141028922, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4000010141028922, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21404,6 +21418,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4000011226073324, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011226073324, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 95000012403032898, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212000010151629462, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -21421,6 +21447,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 212000011640928544, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011640928544, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -21432,6 +21462,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 212000012496812036, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212000012496812036, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -22419,8 +22453,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc2359c54a529b47a4482b2daa0bcfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newInteractionSign: {fileID: 1190536981}
-  dialogueList:
+  _newInteractionIcon: {fileID: 1190536981}
+  _npcSprites: {fileID: 159804517}
+  _dialogueList:
   - {fileID: 11400000, guid: 02d6f441b19e68749968df95ab1680ad, type: 2}
 --- !u!61 &1349032839
 BoxCollider2D:
@@ -22553,7 +22588,7 @@ GameObject:
   - component: {fileID: 1365226267}
   - component: {fileID: 1365226266}
   - component: {fileID: 1365226265}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halloween Pumpkin (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22602,8 +22637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c156573a059d394198d5fc257991403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 30904fabc6c673647aaf46f363c79c75, type: 2}
-  interactedDialogue: {fileID: 11400000, guid: 5e655dc9fba35154ca6d7a129512959d, type: 2}
+  dialogueData: {fileID: 0}
+  interactedDialogueData: {fileID: 0}
   triggerEvent: 1
   interactionEvent:
     m_PersistentCalls:
@@ -43359,7 +43394,7 @@ GameObject:
   - component: {fileID: 1431056970}
   - component: {fileID: 1431056969}
   m_Layer: 0
-  m_Name: Interaction Manager
+  m_Name: Dialogue System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43377,7 +43412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84136ed80168bc946ba92ef2f84ae2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueControllerPrefab: {fileID: 8742360948552227608, guid: eedb13a19ecdde044a4adf7315a59a9e, type: 3}
+  _canvas: {fileID: 1227931979}
+  _dialogueControllerPrefab: {fileID: 8742360948552227611, guid: eedb13a19ecdde044a4adf7315a59a9e, type: 3}
 --- !u!4 &1431056970
 Transform:
   m_ObjectHideFlags: 0
@@ -44940,6 +44976,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chris
       objectReference: {fileID: 0}
+    - target: {fileID: 6120812929102631785, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6120812929102631798, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -44989,6 +45029,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: dialogueList.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: adda452f0eda0d94a94921ea514f2939, type: 2}
@@ -44996,6 +45040,10 @@ PrefabInstance:
       propertyPath: dialogueList.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 525637ff663a77747bc1ad1fe480b48b, type: 2}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: adda452f0eda0d94a94921ea514f2939, type: 2}
     - target: {fileID: 8394340808219455152, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.15
@@ -45643,7 +45691,7 @@ GameObject:
   - component: {fileID: 1643442621}
   - component: {fileID: 1643442620}
   - component: {fileID: 1643442622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halloween Pumpkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45741,8 +45789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c156573a059d394198d5fc257991403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 30904fabc6c673647aaf46f363c79c75, type: 2}
-  interactedDialogue: {fileID: 11400000, guid: 5e655dc9fba35154ca6d7a129512959d, type: 2}
+  dialogueData: {fileID: 0}
+  interactedDialogueData: {fileID: 0}
   triggerEvent: 1
   interactionEvent:
     m_PersistentCalls:
@@ -45989,7 +46037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.96, y: -0.25, z: -10}
+  m_LocalPosition: {x: -4.487033, y: -0.31951427, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55792,7 +55840,7 @@ GameObject:
   - component: {fileID: 1781863116}
   - component: {fileID: 1781863115}
   - component: {fileID: 1781863114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halloween Pumpkin (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55841,8 +55889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c156573a059d394198d5fc257991403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 30904fabc6c673647aaf46f363c79c75, type: 2}
-  interactedDialogue: {fileID: 11400000, guid: 5e655dc9fba35154ca6d7a129512959d, type: 2}
+  dialogueData: {fileID: 0}
+  interactedDialogueData: {fileID: 0}
   triggerEvent: 1
   interactionEvent:
     m_PersistentCalls:
@@ -56040,7 +56088,7 @@ GameObject:
   - component: {fileID: 1847371927}
   - component: {fileID: 1847371926}
   - component: {fileID: 1847371925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Halloween Pumpkin (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56089,8 +56137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c156573a059d394198d5fc257991403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 30904fabc6c673647aaf46f363c79c75, type: 2}
-  interactedDialogue: {fileID: 11400000, guid: 5e655dc9fba35154ca6d7a129512959d, type: 2}
+  dialogueData: {fileID: 0}
+  interactedDialogueData: {fileID: 0}
   triggerEvent: 1
   interactionEvent:
     m_PersistentCalls:
@@ -56588,6 +56636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jimmy
       objectReference: {fileID: 0}
+    - target: {fileID: 6120812929102631785, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6120812929102631798, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -56637,11 +56689,23 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: dialogueList.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: d5f042f0fa54ffe40bfa802a8c01f577, type: 2}
     - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: dialogueList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: beeb5f04885ed26499336c582f215ec2, type: 2}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d5f042f0fa54ffe40bfa802a8c01f577, type: 2}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: beeb5f04885ed26499336c582f215ec2, type: 2}
     - target: {fileID: 8394340808219455153, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
@@ -58006,7 +58070,7 @@ GameObject:
   - component: {fileID: 4000010491252925}
   - component: {fileID: 1349032839}
   - component: {fileID: 1349032838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shopkeeper  (Julie)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58104,15 +58168,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.20000076
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.6
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.38749
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2346321051537762752, guid: 3691ede942fd5a1428c0158608aca35a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58340,6 +58404,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 6120812927908604835, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: m_Name
+      value: New Interaction Icon
+      objectReference: {fileID: 0}
     - target: {fileID: 6120812928898120714, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -58351,6 +58419,10 @@ PrefabInstance:
     - target: {fileID: 6120812929102631785, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_Name
       value: Phill
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120812929102631785, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6120812929102631798, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_RootOrder
@@ -58397,9 +58469,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _newInteractionIcon
+      value: 
+      objectReference: {fileID: 528184223}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: dialogueList.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 07dc4064277a8d74ea029e82e60aca05, type: 2}
     - target: {fileID: 8394340808219455153, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: m_TargetTexture
       value: 
@@ -58422,7 +58506,7 @@ Transform:
   - {fileID: 1318735331}
   - {fileID: 1230951039}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6705440282894533162
 GameObject:
@@ -58436,9 +58520,11 @@ GameObject:
   - component: {fileID: 6705440282894533165}
   - component: {fileID: 6705440282894533164}
   - component: {fileID: 6705440282894533163}
+  - component: {fileID: 6705440282894533170}
   - component: {fileID: 6705440282894533166}
   - component: {fileID: 6705440282894533167}
   - component: {fileID: 6705440282894533168}
+  - component: {fileID: 6705440282894533169}
   m_Layer: 7
   m_Name: Player (Richard)
   m_TagString: Player
@@ -58459,10 +58545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 6705440282894533168}
-  speed: 12.5
-  interactionRange: 3
-  interactionOriginOffset: {x: 0, y: 0.75}
-  directionFacing: 1
+  _rb: {fileID: 6705440282894533165}
+  _movementSpeed: 12.5
 --- !u!61 &6705440282894533164
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58476,7 +58560,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2, y: 1.37}
+  m_Offset: {x: -0.2, y: -0.41}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58487,7 +58571,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.69, y: 2.83}
+  m_Size: {x: 3.69, y: 4.01}
   m_EdgeRadius: 0
 --- !u!50 &6705440282894533165
 Rigidbody2D:
@@ -58548,6 +58632,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699d97c9b9fa75d4d8f258948c233b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6705440282894533169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705440282894533162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a43bdbba6aa2fc41950e401bdc63067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerSprites: {fileID: 51628910}
+  _anim: {fileID: 51628911}
+  _rb2d: {fileID: 6705440282894533165}
+--- !u!114 &6705440282894533170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705440282894533162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc73e73f5bd9bf24aacbddb7d5fc9597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputManager: {fileID: 6705440282894533168}
+  _interactiveLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _interactionDistanceRange: 2
+  _interactionRadius: 1
 --- !u!1 &7931332860176320323
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbbd583c2e3455f468aaf157493f6d39, type: 3}
-  m_Name: Julie
+  m_Name: Rachel
   m_EditorClassIdentifier: 
-  name: Julie
-  portrait: {fileID: 8400000, guid: f18949f2d7b011f43a72c7813cb13a18, type: 2}
-  voiceAudio: 
+  Name: Rachel
+  VoiceAudio: 

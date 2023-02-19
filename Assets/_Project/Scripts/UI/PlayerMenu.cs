@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PlayerMenu : MonoBehaviour
 {
-    private PlayerController playerControlller;
+    private PlayerMovement playerControlller;
     private InventoryController inventoryController;
 
     private void Awake()
     {
-        playerControlller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerControlller = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         inventoryController = UIManager.instance.inventoryController;
     }
 

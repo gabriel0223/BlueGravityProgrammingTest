@@ -27,10 +27,15 @@ public class InteractiveShop : MonoBehaviour, IInteractive
         
     }
 
-    public void Interact()
+    public void Interact(Transform playerTransform)
     {
         if (UIManager.instance.interactingWithUI) return;
         
         shopController.OpenShop(this, items);
+    }
+
+    public void OnInteractionComplete()
+    {
+        throw new NotImplementedException();
     }
 }

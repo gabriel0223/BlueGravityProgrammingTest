@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Phill01
   m_EditorClassIdentifier: 
   sentences:
-  - speaker: {fileID: 11400000, guid: 4f54c1cacd8efd94bacb66b649f73240, type: 2}
+  - speakerData: {fileID: 11400000, guid: 4f54c1cacd8efd94bacb66b649f73240, type: 2}
     text: Richard?
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: Phill?
-  - speaker: {fileID: 11400000, guid: 4f54c1cacd8efd94bacb66b649f73240, type: 2}
+  - speakerData: {fileID: 11400000, guid: 4f54c1cacd8efd94bacb66b649f73240, type: 2}
     text: I almost didn't recognize you dude, happy halloween! I noticed you copied
       my style.
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: Happy halloween, man. You went as a rogue warrior too? What a coincidence!
-  - speaker: {fileID: 11400000, guid: 4f54c1cacd8efd94bacb66b649f73240, type: 2}
+  - speakerData: {fileID: 11400000, guid: 4f54c1cacd8efd94bacb66b649f73240, type: 2}
     text: Coincidence, huh?

@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Jimmy01
   m_EditorClassIdentifier: 
   sentences:
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 4f54c1cacd8efd94bacb66b649f73240, type: 2}
     text: Happy halloween, Jimmy.
-  - speaker: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
+  - speakerData: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
     text: I can't believe it.
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: What?
-  - speaker: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
+  - speakerData: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
     text: 'I can''t believe you had the guts to steal my costume idea. '
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: Actually I didn't know about-
-  - speaker: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
+  - speakerData: {fileID: 11400000, guid: 174ce60d6cb844147adb45d4e87794c6, type: 2}
     text: You're lucky these blades are made of plastic, Richard. I assure you, this
       act of treachery shall not be forgotten.
-  - speaker: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
+  - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: Whatever you say, Jimmy.

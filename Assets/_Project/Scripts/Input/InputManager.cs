@@ -6,6 +6,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public event Action<Vector2> OnMove;
+    public event Action OnInteract; 
 
     private MyInputActions _inputActions;
 
@@ -14,6 +15,7 @@ public class InputManager : MonoBehaviour
         _inputActions = new MyInputActions();
 
         _inputActions.Gameplay.Move.performed += ctx => OnMove?.Invoke(ctx.ReadValue<Vector2>());
+        _inputActions.Gameplay.Interact.performed += ctx => OnInteract?.Invoke();
     }
 
     private void OnEnable()
