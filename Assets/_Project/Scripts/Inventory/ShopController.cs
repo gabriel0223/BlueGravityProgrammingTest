@@ -54,8 +54,8 @@ public class ShopController : MonoBehaviour
     {
         UIManager.instance.interactingWithUI = false;
         UIManager.instance.uiState = UIManager.UIStates.Idle;
-        UIManager.instance.inventoryWindow.transform.SetParent(UIManager.instance.playerMenu.transform); //inventory is a child of the player menu again
-        UIManager.instance.playerMoneyWindow.transform.SetParent(UIManager.instance.playerMenu.transform); //money window is a child of the player menu again
+        UIManager.instance.inventoryWindow.transform.SetParent(UIManager.instance.playerMenuView.transform); //inventory is a child of the player menu again
+        UIManager.instance.playerMoneyWindow.transform.SetParent(UIManager.instance.playerMenuView.transform); //money window is a child of the player menu again
         AudioManager.instance.Play("ClickBack");
         
         if (UIManager.instance.itemInfoWindow.activeSelf)

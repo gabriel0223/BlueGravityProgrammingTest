@@ -9,8 +9,11 @@ public class InputManager : MonoBehaviour
     public event Action<Vector2> OnMove;
     public event Action OnInteract; 
     public event Action OnConfirm;
+    public event Action OnEscape;
+    public event Action OnReturn;
 
     [SerializeField] private DialogueSystem _dialogueSystem;
+    [SerializeField] private PlayerMenuView _playerMenuView;
 
     private MyInputActions _inputActions;
 
@@ -20,10 +23,16 @@ public class InputManager : MonoBehaviour
 
         _inputActions.Gameplay.Move.performed += HandleMoveInput;
         _inputActions.Gameplay.Interact.performed += HandleInteractInput;
+        _inputActions.Gameplay.Escape.performed += HandleEscapeInput;
+
         _inputActions.UI.Confirm.performed += HandleConfirmInput;
+        _inputActions.UI.Return.performed += HandleReturnInput;
 
         _dialogueSystem.OnStartDialogue += SwitchToUIActionMap;
         _dialogueSystem.OnEndDialogue += SwitchToGameplayActionMap;
+
+        _playerMenuView.OnOpenPlayerMenu += SwitchToUIActionMap;
+        _playerMenuView.OnClosePlayerMenu += SwitchToGameplayActionMap;
     }
 
     private void Start()
@@ -45,10 +54,15 @@ public class InputManager : MonoBehaviour
     {
         _inputActions.Gameplay.Move.performed -= HandleMoveInput;
         _inputActions.Gameplay.Interact.performed -= HandleInteractInput;
+        _inputActions.Gameplay.Escape.performed -= HandleEscapeInput;
+
         _inputActions.UI.Confirm.performed -= HandleConfirmInput;
 
         _dialogueSystem.OnStartDialogue -= SwitchToUIActionMap;
         _dialogueSystem.OnEndDialogue -= SwitchToGameplayActionMap;
+
+        _playerMenuView.OnOpenPlayerMenu -= SwitchToUIActionMap;
+        _playerMenuView.OnClosePlayerMenu -= SwitchToGameplayActionMap;
     }
 
     private void HandleMoveInput(InputAction.CallbackContext ctx)
@@ -64,6 +78,16 @@ public class InputManager : MonoBehaviour
     private void HandleConfirmInput(InputAction.CallbackContext ctx)
     {
         OnConfirm?.Invoke();
+    }
+
+    private void HandleEscapeInput(InputAction.CallbackContext obj)
+    {
+        OnEscape?.Invoke();
+    }
+
+    private void HandleReturnInput(InputAction.CallbackContext obj)
+    {
+        OnReturn?.Invoke();
     }
 
     private void Initialize()

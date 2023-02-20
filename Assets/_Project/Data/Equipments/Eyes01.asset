@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9012ebbb36ce6a942b71cd40196f7213, type: 3}
-  m_Name: Eyes02
+  m_Name: Eyes01
   m_EditorClassIdentifier: 
-  name: Red Eyes
-  purchasePrice: 200
-  sellingPrice: 100
-  description: Scary red eyes.
-  equipmentType: 1
-  equipmentSprite: {fileID: 21300000, guid: 8e016bdb4d00e70429de56b91135940c, type: 3}
+  name: Green Eyes
+  purchasePrice: 150
+  sellingPrice: 75
+  description: Aside from the fact that these lenses hurt my eyes, I kinda like it.
+  equipmentType: 0
+  equipmentSprite: {fileID: 21300000, guid: 518ab34707033904cb1d99dbfcc9f4bb, type: 3}

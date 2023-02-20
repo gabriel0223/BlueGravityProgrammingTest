@@ -7,7 +7,7 @@ public class SO_Equipment : SO_Item
 {
     public enum EquipmentType
     {
-        Head, Face, Top, Bottom, Weapon
+        Face, Head, Top, Bottom, Weapon
     }
     
     public EquipmentType equipmentType;

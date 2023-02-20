@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9012ebbb36ce6a942b71cd40196f7213, type: 3}
-  m_Name: Hood02
+  m_Name: Eyes02
   m_EditorClassIdentifier: 
-  name: Green Hood
+  name: Red Eyes
   purchasePrice: 200
   sellingPrice: 100
-  description: Pretty old-fashioned.
+  description: Scary red eyes.
   equipmentType: 0
-  equipmentSprite: {fileID: 21300000, guid: f7e7bed775fff8347b9e53c67e20875f, type: 3}
+  equipmentSprite: {fileID: 21300000, guid: 8e016bdb4d00e70429de56b91135940c, type: 3}

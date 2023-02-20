@@ -11,7 +11,7 @@ public class Purchasable : MonoBehaviour
     [SerializeField] private Image purchasableIcon;
     [SerializeField] private TextMeshProUGUI purchasableName;
     [SerializeField] private TextMeshProUGUI purchasablePrice;
-    private InventoryController inventoryController;
+    private InventoryView _inventoryView;
     private ShopController shopController;
     private PlayerMoney playerMoney;
     
@@ -20,7 +20,7 @@ public class Purchasable : MonoBehaviour
 
     private void Awake()
     {
-        inventoryController = UIManager.instance.inventoryController;
+        _inventoryView = UIManager.instance.inventoryView;
         shopController = UIManager.instance.shopController;
     }
 
@@ -69,7 +69,8 @@ public class Purchasable : MonoBehaviour
                 iconScale = 3.3f;
                 iconPosition = new Vector2(-275, 4);
                 break;
-            default: //weapon
+            case SO_Equipment.EquipmentType.Weapon:
+            default:
                 iconScale = 3.7f;
                 iconPosition = new Vector2(-316, 132);
                 break;
@@ -89,7 +90,7 @@ public class Purchasable : MonoBehaviour
         else
         {
             AudioManager.instance.Play("ItemPurchase");
-            inventoryController.GetFirstEmptySlot().AddItem(item, false);
+            _inventoryView.GetFirstEmptySlot().AddItem(item, false);
             playerMoney.UpdateCoins(-item.purchasePrice);
             shopController.RemoveItemFromShop(item);
             transform.DOScaleY(0, 0.5f).OnComplete(() => Destroy(gameObject));

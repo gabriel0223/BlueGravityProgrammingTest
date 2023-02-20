@@ -809,7 +809,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -828,6 +828,30 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -6239,12 +6263,12 @@ TextureImporter:
       Grassland@64x64_189: 21300378
       Grassland@64x64_214: 21300428
       Grassland@64x64_20: 21300040
-      Grassland@64x64_183: 21300366
+      Grassland@64x64_253: 21300506
       Grassland@64x64_134: 21300268
+      Grassland@64x64_183: 21300366
       Grassland@64x64_244: 21300488
       Grassland@64x64_57: 21300114
       Grassland@64x64_1: 21300002
-      Grassland@64x64_253: 21300506
       Grassland@64x64_28: 21300056
       Grassland@64x64_41: 21300082
       Grassland@64x64_85: 21300170
@@ -6304,13 +6328,13 @@ TextureImporter:
       Grassland@64x64_232: 21300464
       Grassland@64x64_250: 21300500
       Grassland@64x64_225: 21300450
-      Grassland@64x64_128: 21300256
       Grassland@64x64_68: 21300136
-      Grassland@64x64_208: 21300416
-      Grassland@64x64_120: 21300240
-      Grassland@64x64_108: 21300216
-      Grassland@64x64_145: 21300290
       Grassland@64x64_95: 21300190
+      Grassland@64x64_208: 21300416
+      Grassland@64x64_108: 21300216
+      Grassland@64x64_120: 21300240
+      Grassland@64x64_145: 21300290
+      Grassland@64x64_128: 21300256
       Grassland@64x64_122: 21300244
       Grassland@64x64_233: 21300466
       Grassland@64x64_229: 21300458
@@ -6346,15 +6370,15 @@ TextureImporter:
       Grassland@64x64_105: 21300210
       Grassland@64x64_158: 21300316
       Grassland@64x64_118: 21300236
-      Grassland@64x64_135: 21300270
       Grassland@64x64_162: 21300324
       Grassland@64x64_71: 21300142
+      Grassland@64x64_135: 21300270
       Grassland@64x64_165: 21300330
       Grassland@64x64_45: 21300090
       Grassland@64x64_56: 21300112
       Grassland@64x64_78: 21300156
-      Grassland@64x64_116: 21300232
       Grassland@64x64_152: 21300304
+      Grassland@64x64_116: 21300232
       Grassland@64x64_180: 21300360
       Grassland@64x64_148: 21300296
       Grassland@64x64_43: 21300086

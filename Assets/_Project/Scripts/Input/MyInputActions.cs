@@ -34,12 +34,21 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""b25e81b1-7aaa-427f-b275-43179d1421a4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""b895a965-3b08-41db-b912-fa52d895616b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -299,6 +308,50 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ca9e973-6de0-4500-b295-69418abdb51f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3445d93-4c5e-425d-94d9-9d3e3f2b4511"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d50ab6a1-89d5-46be-8c4d-d7a1896ce054"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b924d4da-a121-4dc6-bc69-e230894f6b0c"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -319,6 +372,15 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""Confirm"",
                     ""type"": ""Button"",
                     ""id"": ""e31fe577-6add-4b83-b693-a3961aecb6ac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Return"",
+                    ""type"": ""Button"",
+                    ""id"": ""b67c1d0d-fee2-4136-a515-8575bfcef59d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -392,6 +454,15 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""2118c607-59d1-4ac3-a930-d6f905cc84ca"",
                     ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""1d259ed8-cd92-4f5e-967d-b66d8e8b3e51"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -881,6 +952,105 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Confirm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""947e8275-d917-49c3-86e6-883920ce67b6"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f15b5082-84a8-45fb-b68a-b303044a64db"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c431194-04e0-4589-8d17-016d6bd5ec25"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9cf4b80-b37c-4ae2-8a67-a7773c698a10"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ece869bf-7100-41b2-a5f7-ebbc8c4b1ba3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d54f393f-f3bb-4a9f-afc1-92fe4ea9b711"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6e48f1e-b747-4d94-9cc3-01089df00c99"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b9ca3fac-1498-4df0-9b01-d61ba55ebbd8"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0272a8ef-5ab0-4dd5-a569-71ac46a7fe50"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -919,10 +1089,12 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
+        m_Gameplay_Escape = m_Gameplay.FindAction("Escape", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
         m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
+        m_UI_Return = m_UI.FindAction("Return", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
@@ -931,6 +1103,7 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -992,12 +1165,14 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Interact;
+    private readonly InputAction m_Gameplay_Escape;
     public struct GameplayActions
     {
         private @MyInputActions m_Wrapper;
         public GameplayActions(@MyInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
+        public InputAction @Escape => m_Wrapper.m_Gameplay_Escape;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1013,6 +1188,9 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                @Escape.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1023,6 +1201,9 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
             }
         }
     }
@@ -1033,6 +1214,7 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Navigate;
     private readonly InputAction m_UI_Confirm;
+    private readonly InputAction m_UI_Return;
     private readonly InputAction m_UI_Cancel;
     private readonly InputAction m_UI_Point;
     private readonly InputAction m_UI_Click;
@@ -1041,12 +1223,14 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_RightClick;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_Escape;
     public struct UIActions
     {
         private @MyInputActions m_Wrapper;
         public UIActions(@MyInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
         public InputAction @Confirm => m_Wrapper.m_UI_Confirm;
+        public InputAction @Return => m_Wrapper.m_UI_Return;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
         public InputAction @Point => m_Wrapper.m_UI_Point;
         public InputAction @Click => m_Wrapper.m_UI_Click;
@@ -1055,6 +1239,7 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
         public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+        public InputAction @Escape => m_Wrapper.m_UI_Escape;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1070,6 +1255,9 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                 @Confirm.started -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirm;
                 @Confirm.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirm;
                 @Confirm.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirm;
+                @Return.started -= m_Wrapper.m_UIActionsCallbackInterface.OnReturn;
+                @Return.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnReturn;
+                @Return.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnReturn;
                 @Cancel.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCancel;
                 @Cancel.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCancel;
                 @Cancel.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCancel;
@@ -1094,6 +1282,9 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                 @TrackedDeviceOrientation.started -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
+                @Escape.started -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1104,6 +1295,9 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                 @Confirm.started += instance.OnConfirm;
                 @Confirm.performed += instance.OnConfirm;
                 @Confirm.canceled += instance.OnConfirm;
+                @Return.started += instance.OnReturn;
+                @Return.performed += instance.OnReturn;
+                @Return.canceled += instance.OnReturn;
                 @Cancel.started += instance.OnCancel;
                 @Cancel.performed += instance.OnCancel;
                 @Cancel.canceled += instance.OnCancel;
@@ -1128,6 +1322,9 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
                 @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
             }
         }
     }
@@ -1154,11 +1351,13 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnNavigate(InputAction.CallbackContext context);
         void OnConfirm(InputAction.CallbackContext context);
+        void OnReturn(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
@@ -1167,5 +1366,6 @@ public partial class @MyInputActions : IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

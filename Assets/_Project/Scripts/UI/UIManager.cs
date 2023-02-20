@@ -13,9 +13,9 @@ public class UIManager : MonoBehaviour
     }
     
     [Header("REFERENCES")]
-    public PlayerMenu playerMenu;
+    public PlayerMenuView playerMenuView;
     public ShopController shopController;
-    public InventoryController inventoryController;
+    public InventoryView inventoryView;
     public GameObject inventoryWindow;
     public GameObject itemInfoWindow;
     public GameObject playerMoneyWindow;

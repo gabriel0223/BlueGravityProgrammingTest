@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9012ebbb36ce6a942b71cd40196f7213, type: 3}
-  m_Name: Hood03
+  m_Name: Hood01
   m_EditorClassIdentifier: 
-  name: Warrior hood
-  purchasePrice: 300
-  sellingPrice: 150
-  description: Julie's favorite.
-  equipmentType: 0
-  equipmentSprite: {fileID: 21300000, guid: 20eb058aea3c3a744bb5d47a1610550a, type: 3}
+  name: Orange Hood
+  purchasePrice: 100
+  sellingPrice: 50
+  description: A dull orange hood, just like Phill's.
+  equipmentType: 1
+  equipmentSprite: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}

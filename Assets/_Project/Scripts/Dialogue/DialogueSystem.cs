@@ -29,10 +29,6 @@ public class DialogueSystem : MonoBehaviour
 
     private void StartNpcDialogue(NpcController npc, DialogueData dialogueData)
     {
-        if (UIManager.instance.interactingWithUI) return;
-        UIManager.instance.interactingWithUI = true;
-        UIManager.instance.uiState = UIManager.UIStates.Talking;
-
         _currentInteraction = npc;
 
         DialogueView newDialogueView = Instantiate(_dialogueViewPrefab, _canvas.transform);
@@ -46,10 +42,6 @@ public class DialogueSystem : MonoBehaviour
 
     private void StartInteractionDialogue(InteractiveObjectController obj, DialogueData dialogueData)
     {
-        if (UIManager.instance.interactingWithUI) return;
-        UIManager.instance.interactingWithUI = true;
-        UIManager.instance.uiState = UIManager.UIStates.Talking;
-
         _currentInteraction = obj;
 
         DialogueView newDialogueView = Instantiate(_dialogueViewPrefab, _canvas.transform);

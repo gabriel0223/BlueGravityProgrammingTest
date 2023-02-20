@@ -36,7 +36,6 @@ public class DialogueView : MonoBehaviour
     private Coroutine _typingCoroutine;
     private Action _onComplete;
 
-    // Start is called before the first frame update
     void Start()
     {
         Initialize();
@@ -44,9 +43,6 @@ public class DialogueView : MonoBehaviour
 
     private void OnDestroy()
     {
-        UIManager.instance.interactingWithUI = false;
-        UIManager.instance.uiState = UIManager.UIStates.Idle;
-
         _inputManager.OnConfirm -= HandleConfirm;
 
         _onComplete?.Invoke();

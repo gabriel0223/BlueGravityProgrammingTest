@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
-
     public Sound[] sounds;
 
     public static AudioManager instance;
@@ -20,7 +19,6 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
         if (instance == null)
         {
             instance = this;
@@ -46,17 +44,6 @@ public class AudioManager : MonoBehaviour
 
             if (s.playOnAwake) Play(s.name);
         }
-    }
-
-    private void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Play(string name)

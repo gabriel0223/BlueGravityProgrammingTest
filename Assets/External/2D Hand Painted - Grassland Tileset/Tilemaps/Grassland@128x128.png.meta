@@ -838,6 +838,30 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -6308,18 +6332,18 @@ TextureImporter:
       Grassland@128x128_5: 21300010
       Grassland@128x128_69: 21300138
       Grassland@128x128_19: 21300038
+      Grassland@128x128_195: 21300390
       Grassland@128x128_64: 21300128
-      Grassland@128x128_173: 21300346
-      Grassland@128x128_142: 21300284
       Grassland@128x128_138: 21300276
-      Grassland@128x128_214: 21300428
+      Grassland@128x128_142: 21300284
+      Grassland@128x128_173: 21300346
       Grassland@128x128_51: 21300102
       Grassland@128x128_152: 21300304
       Grassland@128x128_12: 21300024
       Grassland@128x128_163: 21300326
-      Grassland@128x128_195: 21300390
       Grassland@128x128_205: 21300410
       Grassland@128x128_212: 21300424
+      Grassland@128x128_214: 21300428
       Grassland@128x128_131: 21300262
       Grassland@128x128_237: 21300474
       Grassland@128x128_183: 21300366
@@ -6353,9 +6377,9 @@ TextureImporter:
       Grassland@128x128_25: 21300050
       Grassland@128x128_185: 21300370
       Grassland@128x128_1: 21300002
-      Grassland@128x128_160: 21300320
       Grassland@128x128_194: 21300388
       Grassland@128x128_244: 21300488
+      Grassland@128x128_160: 21300320
       Grassland@128x128_180: 21300360
       Grassland@128x128_215: 21300430
       Grassland@128x128_102: 21300204

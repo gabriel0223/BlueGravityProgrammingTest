@@ -10,27 +10,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _movementSpeed;
 
-    private bool inputLocked;
-
     private void Start()
     {
         _inputManager.OnMove += HandleMovement;
     }
 
-    private void HandleMovement(Vector2 moveInput)
+    private void OnDestroy()
     {
-        if (inputLocked)
-        {
-            return;
-        }
-
-        Vector2 newSpeed = moveInput.normalized * _movementSpeed;
-        _rb.velocity = newSpeed;
+        _inputManager.OnMove -= HandleMovement;
     }
 
-    public void LockInput(bool locked)
+    private void HandleMovement(Vector2 moveInput)
     {
-        if (locked) _rb.velocity = Vector2.zero;
-        inputLocked = locked;
+        Vector2 newSpeed = moveInput.normalized * _movementSpeed;
+        _rb.velocity = newSpeed;
     }
 }
