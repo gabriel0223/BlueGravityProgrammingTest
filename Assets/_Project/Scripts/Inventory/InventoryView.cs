@@ -139,8 +139,9 @@ public class InventoryView : MonoBehaviour
     private void AttachItemToMouse(InventorySlotView slot)
     {
         //copy item icon to be dragged on item selector
-        Image itemIcon = Instantiate(slot.GetIcon(), _itemSelector); 
+        Image itemIcon = Instantiate(slot.GetIcon(), _itemSelector);
         itemIcon.transform.localPosition += _dragItemPositionOffset;
+        itemIcon.transform.SetAsFirstSibling();
         itemIcon.enabled = true;
 
         _isDraggingItem = true;
