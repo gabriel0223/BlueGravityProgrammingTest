@@ -37,17 +37,10 @@ public class InventorySlotView : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!IsOccupied())
-        {
-            return;
-        }
-        
-        _itemInfoWindow.Hide();
-        _iconAnimation.Shrink();
+        Reset();
     }
 
-
-    public void AddItem(SO_Equipment item, bool hoverAnimation)
+    public virtual void AddItem(SO_Equipment item, bool hoverAnimation)
     {
         _item = item;
 
@@ -62,13 +55,16 @@ public class InventorySlotView : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void RemoveItem()
     {
         _item = null;
+
+        _itemInfoWindow.Hide();
+        UpdateItemIcon();
     }
 
     public void DeleteItem()
     {
         RemoveItem();
         UpdateItemIcon();
-        UIManager.instance.itemInfoWindow.SetActive(false);
+        _itemInfoWindow.Hide();
     }
 
     public void SetItemInfoWindow(ItemInfoWindow itemInfoWindow)
@@ -91,6 +87,17 @@ public class InventorySlotView : MonoBehaviour, IPointerEnterHandler, IPointerEx
         return _slotIcon;
     }
 
+    public void Reset()
+    {
+        if (!IsOccupied())
+        {
+            return;
+        }
+        
+        _itemInfoWindow.Hide();
+        _iconAnimation.Shrink();
+    }
+
     private void UpdateItemIcon()
     {
         if (!IsOccupied())
@@ -110,7 +117,7 @@ public class InventorySlotView : MonoBehaviour, IPointerEnterHandler, IPointerEx
         float iconScale;
         Vector2 iconPosition;
         
-        //this adjustment needs to be done hardcoded because of the way the art was exported :( 
+        //this adjustment needed to be done hardcoded because of the way the art pack was exported :( 
         switch (_item.equipmentType)
         {
             case SO_Equipment.EquipmentType.Top:

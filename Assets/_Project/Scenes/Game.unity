@@ -1054,22 +1054,22 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99835147}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 7.188222}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 731233184}
   - {fileID: 1923302711}
   - {fileID: 2118532741}
   - {fileID: 1061048819}
-  m_Father: {fileID: 1227931979}
-  m_RootOrder: 3
+  m_Father: {fileID: 639957140}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 370, y: -437}
-  m_SizeDelta: {x: 500, y: 180}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -150}
+  m_SizeDelta: {x: 520, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &99835149
 MonoBehaviour:
@@ -1084,9 +1084,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventoryView: {fileID: 1446146747}
-  itemNameText: {fileID: 731233185}
-  itemDescriptionText: {fileID: 1061048820}
-  itemPriceText: {fileID: 2015522568}
+  _itemNameText: {fileID: 731233185}
+  _itemDescriptionText: {fileID: 1061048820}
+  _itemPriceText: {fileID: 2015522568}
 --- !u!114 &99835150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3985,7 +3985,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 99835148}
   m_Father: {fileID: 2093219506}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4011,7 +4012,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
@@ -4267,10 +4268,10 @@ RectTransform:
   m_Father: {fileID: 99835148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6, y: -3}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -44.7051, y: 61.275024}
+  m_SizeDelta: {x: 364.1699, y: 51.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731233185
 MonoBehaviour:
@@ -4327,7 +4328,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4355,7 +4356,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 30, y: 10, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6178,10 +6179,10 @@ RectTransform:
   m_Father: {fileID: 99835148}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000019073, y: -26.131409}
+  m_SizeDelta: {x: 453.58, y: 102.8627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1061048820
 MonoBehaviour:
@@ -6266,7 +6267,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 45, y: 60, z: 45, w: 20}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -20532,7 +20533,6 @@ RectTransform:
   - {fileID: 1516502963}
   - {fileID: 2093219506}
   - {fileID: 343508124}
-  - {fileID: 99835148}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44307,7 +44307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: _dialogueList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: dialogueList.Array.data[0]
@@ -44321,6 +44321,10 @@ PrefabInstance:
       propertyPath: _dialogueList.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: adda452f0eda0d94a94921ea514f2939, type: 2}
+    - target: {fileID: 6120812929102631799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
+      propertyPath: _dialogueList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 827fcc4a050e96c4a89b9615b32e73d5, type: 2}
     - target: {fileID: 7123663213279542799, guid: 614cc2b6fc1710e40a7a70db6e2c7ffc, type: 3}
       propertyPath: _speakerData
       value: 
@@ -55564,8 +55568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43bc0fe99e437114491477b22f778bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hoverScaleMultiplier: 0
-  _animationDuration: 0
+  _hoverScaleMultiplier: 1.2
+  _animationDuration: 0.25
 --- !u!114 &2040480382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56920,15 +56924,22 @@ MonoBehaviour:
   _inputManager: {fileID: 6705440282894533168}
   _playerMenuView: {fileID: 2093219507}
   _inventoryView: {fileID: 1446146747}
-  _currentFaceEquipment: {fileID: 11400000, guid: 7308c1cae01a8cf4c81292968bdb1518, type: 2}
-  _currentHeadEquipment: {fileID: 11400000, guid: 68daeab64f5a3804096039b012a79fb0, type: 2}
-  _currentTopEquipment: {fileID: 11400000, guid: b67b64f6d0830c24ead6327b836c5771, type: 2}
-  _currentBottomEquipment: {fileID: 11400000, guid: 931322bf985bbfa4eba1de3d9e48d1b5, type: 2}
-  _currentWeaponEquipment: {fileID: 11400000, guid: 476081c714eff3d448f2d82ee64d8558, type: 2}
-  _inventory:
+  _initialInventory:
   - {fileID: 11400000, guid: 88f2b50158480f649993613e91e8e881, type: 2}
   - {fileID: 11400000, guid: 60d31d33bbc032348934f4f56e0874df, type: 2}
   - {fileID: 11400000, guid: 7327b2f78d180d24ba2140e3d8df224f, type: 2}
+  _initialEquippedItems:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 7308c1cae01a8cf4c81292968bdb1518, type: 2}
+    - Key: 1
+      Value: {fileID: 11400000, guid: 68daeab64f5a3804096039b012a79fb0, type: 2}
+    - Key: 2
+      Value: {fileID: 11400000, guid: b67b64f6d0830c24ead6327b836c5771, type: 2}
+    - Key: 3
+      Value: {fileID: 11400000, guid: 931322bf985bbfa4eba1de3d9e48d1b5, type: 2}
+    - Key: 4
+      Value: {fileID: 11400000, guid: 476081c714eff3d448f2d82ee64d8558, type: 2}
 --- !u!114 &6705440282894533167
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,7 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
+using EquipmentType = SO_Equipment.EquipmentType;
 
 public class InventoryController : MonoBehaviour
 {
@@ -9,38 +10,42 @@ public class InventoryController : MonoBehaviour
     [SerializeField] private PlayerMenuView _playerMenuView;
     [SerializeField] private InventoryView _inventoryView;
     [Space]
-    [SerializeField] private SO_Equipment _currentFaceEquipment;
-    [SerializeField] private SO_Equipment _currentHeadEquipment;
-    [SerializeField] private SO_Equipment _currentTopEquipment;
-    [SerializeField] private SO_Equipment _currentBottomEquipment;
-    [SerializeField] private SO_Equipment _currentWeaponEquipment;
+    [SerializeField] private List<SO_Equipment> _initialInventory = new();
+    [SerializedDictionary("EquipmentType", "Equipment")]
+    [SerializeField] private SerializedDictionary<EquipmentType, SO_Equipment> _initialEquippedItems = new();
 
-    [SerializeField] public List<SO_Equipment> _inventory = new List<SO_Equipment>();
-
-    private bool _hasInitializedUi;
+    private List<SO_Equipment> _inventory = new();
+    private Dictionary<EquipmentType, SO_Equipment> _equippedItems = new();
 
     private void Start()
     {
+        Initialize();
+
         _inputManager.OnEscape += HandleEscapeInput;
         _inputManager.OnReturn += HandleReturnInput;
+
+        _inventoryView.OnEquipItem += HandleItemEquipped;
     }
 
     private void OnDestroy()
     {
         _inputManager.OnEscape -= HandleEscapeInput;
         _inputManager.OnReturn -= HandleReturnInput;
+
+        _inventoryView.OnEquipItem -= HandleItemEquipped;
+    }
+
+    private void Initialize()
+    {
+        _inventory = new List<SO_Equipment>(_initialInventory);
+        _equippedItems = new Dictionary<EquipmentType, SO_Equipment>(_initialEquippedItems);
+
+        InitializeInventoryUi();
     }
 
     private void HandleEscapeInput()
     {
         _playerMenuView.OpenPlayerMenu();
-
-        if (_hasInitializedUi)
-        {
-            return;
-        }
-
-        InitializeInventoryUi();
     }
 
     private void HandleReturnInput()
@@ -51,16 +56,32 @@ public class InventoryController : MonoBehaviour
         }
     }
 
+    private void HandleItemEquipped(SO_Equipment newEquippedItem)
+    {
+        _inventory.Remove(newEquippedItem);
+
+        _equippedItems.TryGetValue(newEquippedItem.equipmentType, out SO_Equipment itemToBeReplaced);
+
+        if (itemToBeReplaced != null)
+        {
+            _inventory.Add(itemToBeReplaced);
+        }
+
+        _equippedItems[newEquippedItem.equipmentType] = newEquippedItem;
+    }
+
     private void InitializeInventoryUi()
     {
-        _inventoryView.InitializeInventory(_inventory);
+        _inventoryView.Initialize();
 
-        _inventoryView.InitializeEquipment(_currentFaceEquipment);
-        _inventoryView.InitializeEquipment(_currentHeadEquipment);
-        _inventoryView.InitializeEquipment(_currentTopEquipment);
-        _inventoryView.InitializeEquipment(_currentBottomEquipment);
-        _inventoryView.InitializeEquipment(_currentWeaponEquipment);
+        foreach (SO_Equipment item in _initialInventory)
+        {
+            _inventoryView.AddItem(item);
+        }
 
-        _hasInitializedUi = true;
+        foreach (SO_Equipment equipment in _initialEquippedItems.Values)
+        {
+            _inventoryView.AddEquipment(equipment);
+        }
     }
 }

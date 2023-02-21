@@ -12,6 +12,13 @@ public class EquipmentSlotView : InventorySlotView
     [SerializeField] private SpriteRenderer _spriteToChange;
     [SerializeField] private SO_Equipment.EquipmentType _slotType;
 
+    public override void AddItem(SO_Equipment item, bool hoverAnimation)
+    {
+        base.AddItem(item, hoverAnimation);
+
+        EquipItem();
+    }
+
     public void EquipItem()
     {
         _spriteToChange.sprite = GetItem().equipmentSprite;

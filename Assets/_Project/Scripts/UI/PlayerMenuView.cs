@@ -20,12 +20,14 @@ public class PlayerMenuView : MonoBehaviour
     
     public void ClosePlayerMenu()
     {
-        if (_inventoryView.IsCarryingItem)
+        if (_inventoryView.IsDraggingItem)
         {
             return;
         }
 
+        _inventoryView.OnClose();
         AudioManager.instance.Play(Sounds.ClickBack);
+
         gameObject.SetActive(false);
 
         OnClosePlayerMenu?.Invoke();

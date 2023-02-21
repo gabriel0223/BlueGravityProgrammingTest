@@ -4,32 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InventoryView : MonoBehaviour
 {
+    public event Action<SO_Equipment> OnEquipItem;
+
     [SerializeField] private Transform _itemSelector;
     [SerializeField] private ItemInfoWindow _itemInfoWindow;
     [SerializeField] private InventorySlotView[] _inventorySlots;
     [SerializeField] private EquipmentSlotView[] _equipmentSlots;
     
-    private bool _isCarryingItem;
+    private bool _isDraggingItem;
     private SO_Equipment _currentSelectedItem;
-    private readonly Vector3 _itemPositionOffset = new Vector2(30, -30);
+    private readonly Vector3 _dragItemPositionOffset = new Vector2(30, -30);
 
-    public bool IsCarryingItem => _isCarryingItem;
+    public bool IsDraggingItem => _isDraggingItem;
 
-    void Start()
-    {
-        InitializeSlots();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         _itemSelector.position = Mouse.current.position.ReadValue();
     }
 
-    private void InitializeSlots()
+    public void Initialize()
     {
         foreach (InventorySlotView slot in _inventorySlots)
         {
@@ -44,19 +41,31 @@ public class InventoryView : MonoBehaviour
         }
     }
 
-    public void InitializeInventory(List<SO_Equipment> inventory)
+    public void AddItem(SO_Equipment equipment)
     {
-        for (int i = 0; i < inventory.Count; i++)
-        {
-            _inventorySlots[i].AddItem(inventory[i], false);
-        }
+        InventorySlotView emptySlot = GetFirstEmptySlot();
+
+        emptySlot.AddItem(equipment, false);
     }
 
-    public void InitializeEquipment(SO_Equipment equipment)
+    public void AddEquipment(SO_Equipment equipment)
     {
         EquipmentSlotView equipmentSlot = _equipmentSlots.First(slot => slot.GetEquipmentType() == equipment.equipmentType);
 
         equipmentSlot.AddItem(equipment, false);
+    }
+
+    public void OnClose()
+    {
+        foreach (InventorySlotView slot in _inventorySlots)
+        {
+            slot.Reset();
+        }
+
+        foreach (EquipmentSlotView slot in _equipmentSlots)
+        {
+            slot.Reset();
+        }
     }
 
     private void SelectInventorySlot(InventorySlotView slot)
@@ -68,63 +77,93 @@ public class InventoryView : MonoBehaviour
         //     return;
         // }
         
-        if (!_isCarryingItem) //if it's not selecting the second slot
+        if (_isDraggingItem)
         {
-            _currentSelectedItem = slot.GetItem();
-            
-            slot.RemoveItem();
-            _itemInfoWindow.gameObject.SetActive(false);
-            var iconCopy = Instantiate(slot.GetIcon(), _itemSelector); //copy icon to be carried on item selector
-            slot.GetIcon().enabled = false; //disable icon on the slot
+            DetachItemFromMouse();
 
-            iconCopy.GetComponent<RectTransform>().localPosition += _itemPositionOffset;
-            
-            _isCarryingItem = true;
-            AudioManager.instance.Play("SelectItem");
+            if (!slot.IsOccupied())
+            {
+                slot.AddItem(_currentSelectedItem, true);
+            }
+            else
+            {
+                ReplaceItemInSlot(slot);
+            }
+
+            AudioManager.instance.Play(Sounds.DeselectItem);
         }
         else
         {
-            AddItemToSlot(slot, _currentSelectedItem);
+            if (!slot.IsOccupied())
+            {
+                return;
+            }
+
+            GrabItemFromSlot(slot);
         }
     }
 
-    private void SelectEquipmentSlot(EquipmentSlotView slotView)
+    private void SelectEquipmentSlot(EquipmentSlotView slot)
     {
-        if (!_isCarryingItem || slotView.GetItem().equipmentType != _currentSelectedItem.equipmentType) return;
-        AddItemToSlot(slotView, slotView.GetItem());
-        slotView.EquipItem();
-    }
-
-    private void AddItemToSlot(InventorySlotView slotView, SO_Equipment item)
-    {
-        if (slotView.GetItem() == null) //if there's no item in the slot
+        if (!_isDraggingItem || slot.GetItem().equipmentType != _currentSelectedItem.equipmentType)
         {
-            slotView.AddItem(item, true);
+            return;
+        }
 
-            Destroy(_itemSelector.GetChild(0).gameObject); //destroy icon copy in the item selector
-            _isCarryingItem = false;
+        DetachItemFromMouse();
+
+        if (!slot.IsOccupied())
+        {
+            slot.AddItem(_currentSelectedItem, true);
         }
         else
         {
-            ReplaceItem();
+            ReplaceItemInSlot(slot);
         }
 
-        void ReplaceItem()
-        {
-            var secondSlotItem = slotView.GetItem();
-            
-            //PUT NEW ICON IN THE ITEM SELECTOR
-            Destroy(_itemSelector.GetChild(0).gameObject); //destroy icon copy in the item selector
-            var iconCopy = Instantiate(slotView.GetIcon(), _itemSelector); //copy icon to be carried on item selector
-            iconCopy.GetComponent<RectTransform>().localPosition += _itemPositionOffset;
-            
-            //PUT OLD ITEM IN THE SECOND SLOT
-            slotView.AddItem(_currentSelectedItem, true);
+        AudioManager.instance.Play(Sounds.DeselectItem);
 
-            _currentSelectedItem = secondSlotItem;
-        }
+        OnEquipItem?.Invoke(slot.GetItem());
+    }
+
+    private void GrabItemFromSlot(InventorySlotView slot)
+    {
+        _currentSelectedItem = slot.GetItem();
+
+        slot.RemoveItem();
+        AttachItemToMouse(slot);
         
-        AudioManager.instance.Play("DeselectItem");
+        AudioManager.instance.Play(Sounds.SelectItem);
+    }
+
+    private void AttachItemToMouse(InventorySlotView slot)
+    {
+        //copy item icon to be dragged on item selector
+        Image itemIcon = Instantiate(slot.GetIcon(), _itemSelector); 
+        itemIcon.transform.localPosition += _dragItemPositionOffset;
+        itemIcon.enabled = true;
+
+        _isDraggingItem = true;
+    }
+
+    private void DetachItemFromMouse()
+    {
+        //destroy icon copy in the item selector
+        Destroy(_itemSelector.GetChild(0).gameObject);
+
+        _isDraggingItem = false;
+    }
+
+    private void ReplaceItemInSlot(InventorySlotView slot)
+    {
+        SO_Equipment secondSlotItem = slot.GetItem();
+            
+        AttachItemToMouse(slot);
+
+        //put old item in the second slot
+        slot.AddItem(_currentSelectedItem, true);
+
+        _currentSelectedItem = secondSlotItem;
     }
 
     public InventorySlotView GetFirstEmptySlot()
