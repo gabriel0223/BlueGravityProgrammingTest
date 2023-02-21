@@ -525,17 +525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b8e885bbf52ef4e9301acc9d7408c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassFootstepsAudios:
-  - FootstepGrass01
-  - FootstepGrass02
-  - FootstepGrass03
-  - FootstepGrass04
-  dirtFootstepsAudios:
-  - FootstepDirt01
-  - FootstepDirt02
-  - FootstepDirt03
-  - FootstepDirt04
-  currentSurface: 0
 --- !u!210 &51628907
 SortingGroup:
   m_ObjectHideFlags: 0

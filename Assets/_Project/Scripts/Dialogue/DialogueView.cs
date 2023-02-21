@@ -44,6 +44,7 @@ public class DialogueView : MonoBehaviour
     private void OnDestroy()
     {
         _inputManager.OnConfirm -= HandleConfirm;
+        _inputManager.OnReturn -= HandleConfirm;
 
         _onComplete?.Invoke();
     }
@@ -63,6 +64,7 @@ public class DialogueView : MonoBehaviour
         _inputManager = inputManager;
 
         _inputManager.OnConfirm += HandleConfirm;
+        _inputManager.OnReturn += HandleConfirm;
     }
 
     private void Initialize()

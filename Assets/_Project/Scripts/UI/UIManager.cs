@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button _closeButton;
 
     private ShopView _shopWindow;
+    private bool _playerIsBrowingMenu;
 
     private void Start()
     {
@@ -51,6 +52,7 @@ public class UIManager : MonoBehaviour
         AudioManager.instance.Play(Sounds.Pop01);
         _closeButton.onClick.AddListener(CloseCustomizationMenu);
 
+        _playerIsBrowingMenu = true;
         OnOpenMenu?.Invoke();
     }
 
@@ -69,6 +71,7 @@ public class UIManager : MonoBehaviour
         AudioManager.instance.Play(Sounds.ClickBack);
         _closeButton.onClick.RemoveAllListeners();
 
+        _playerIsBrowingMenu = false;
         OnCloseMenu?.Invoke();
     }
 
@@ -87,6 +90,7 @@ public class UIManager : MonoBehaviour
         AudioManager.instance.Play(Sounds.Pop01);
         _closeButton.onClick.AddListener(CloseShopWindow);
 
+        _playerIsBrowingMenu = true;
         OnOpenMenu?.Invoke();
     }
 
@@ -100,6 +104,7 @@ public class UIManager : MonoBehaviour
         AudioManager.instance.Play(Sounds.ClickBack);
         _closeButton.onClick.RemoveAllListeners();
 
+        _playerIsBrowingMenu = false;
         OnCloseMenu?.Invoke();
     }
 
@@ -110,6 +115,11 @@ public class UIManager : MonoBehaviour
 
     private void HandleReturnInput()
     {
+        if (!_playerIsBrowingMenu)
+        {
+            return;
+        }
+
         if (_shopWindow != null)
         {
             CloseShopWindow();

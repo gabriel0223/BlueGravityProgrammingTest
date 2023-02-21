@@ -89,8 +89,6 @@ public class InventorySlotView : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void Reset()
     {
-        Debug.Log("chamei");
-
         if (!IsOccupied())
         {
             return;
