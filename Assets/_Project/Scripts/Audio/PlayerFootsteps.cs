@@ -4,25 +4,14 @@ using UnityEngine;
 
 public class PlayerFootsteps : MonoBehaviour
 {
-    public enum Surfaces
-    {
-        Dirt, Grass
-    }
-
-    [SerializeField] private string[] grassFootstepsAudios;
-    [SerializeField] private string[] dirtFootstepsAudios;
-    [HideInInspector] public Surfaces currentSurface = Surfaces.Dirt;
-
     public void PlayFootstepSound()
     {
-        switch (currentSurface)
+        AudioManager.instance.PlayRandomBetweenSounds(new []
         {
-            case Surfaces.Grass:
-                AudioManager.instance.PlayRandomBetweenSounds(grassFootstepsAudios);
-                break;
-            default:
-                AudioManager.instance.PlayRandomBetweenSounds(dirtFootstepsAudios);
-                break;
-        }
+            Sounds.FootstepDirt01,
+            Sounds.FootstepDirt02,
+            Sounds.FootstepDirt03,
+            Sounds.FootstepDirt04
+        });
     }
 }

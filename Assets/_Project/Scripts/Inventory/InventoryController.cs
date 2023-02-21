@@ -2,19 +2,19 @@ using System;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
-using EquipmentType = SO_Equipment.EquipmentType;
+using EquipmentType = EquipmentData.EquipmentType;
 
 public class InventoryController : MonoBehaviour
 {
     [SerializeField] private PlayerMoneyController _playerMoney;
     [SerializeField] private InventoryView _inventoryView;
     [Space]
-    [SerializeField] private List<SO_Equipment> _initialInventory = new();
+    [SerializeField] private List<EquipmentData> _initialInventory = new();
     [SerializedDictionary("EquipmentType", "Equipment")]
-    [SerializeField] private SerializedDictionary<EquipmentType, SO_Equipment> _initialEquippedItems = new();
+    [SerializeField] private SerializedDictionary<EquipmentType, EquipmentData> _initialEquippedItems = new();
 
-    private List<SO_Equipment> _inventory = new();
-    private Dictionary<EquipmentType, SO_Equipment> _equippedItems = new();
+    private List<EquipmentData> _inventory = new();
+    private Dictionary<EquipmentType, EquipmentData> _equippedItems = new();
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class InventoryController : MonoBehaviour
         _inventoryView.OnPlayerEquipItem += HandleItemEquipped;
         _inventoryView.OnPlayerSellItem += HandleItemSold;
 
-        ShopController.OnPlayerBuyItem += HandleItemPurchased;
+        ShopView.OnPlayerBuyItem += HandleItemPurchased;
     }
 
     private void OnDestroy()
@@ -31,22 +31,22 @@ public class InventoryController : MonoBehaviour
         _inventoryView.OnPlayerEquipItem -= HandleItemEquipped;
         _inventoryView.OnPlayerSellItem -= HandleItemSold;
 
-        ShopController.OnPlayerBuyItem -= HandleItemPurchased;
+        ShopView.OnPlayerBuyItem -= HandleItemPurchased;
     }
 
     private void Initialize()
     {
-        _inventory = new List<SO_Equipment>(_initialInventory);
-        _equippedItems = new Dictionary<EquipmentType, SO_Equipment>(_initialEquippedItems);
+        _inventory = new List<EquipmentData>(_initialInventory);
+        _equippedItems = new Dictionary<EquipmentType, EquipmentData>(_initialEquippedItems);
 
         InitializeInventoryUi();
     }
 
-    private void HandleItemEquipped(SO_Equipment newEquippedItem)
+    private void HandleItemEquipped(EquipmentData newEquippedItem)
     {
         _inventory.Remove(newEquippedItem);
 
-        _equippedItems.TryGetValue(newEquippedItem.equipmentType, out SO_Equipment itemToBeReplaced);
+        _equippedItems.TryGetValue(newEquippedItem.equipmentType, out EquipmentData itemToBeReplaced);
 
         if (itemToBeReplaced != null)
         {
@@ -60,18 +60,18 @@ public class InventoryController : MonoBehaviour
     {
         _inventoryView.Initialize();
 
-        foreach (SO_Equipment item in _initialInventory)
+        foreach (EquipmentData item in _initialInventory)
         {
             _inventoryView.AddItem(item);
         }
 
-        foreach (SO_Equipment equipment in _initialEquippedItems.Values)
+        foreach (EquipmentData equipment in _initialEquippedItems.Values)
         {
             _inventoryView.AddEquipment(equipment);
         }
     }
 
-    private void HandleItemSold(SO_Equipment soldItem)
+    private void HandleItemSold(EquipmentData soldItem)
     {
         _inventory.Remove(soldItem);
         _playerMoney.AddMoney(soldItem.sellingPrice);
@@ -79,7 +79,7 @@ public class InventoryController : MonoBehaviour
         AudioManager.instance.Play(Sounds.ItemSell);
     }
 
-    private void HandleItemPurchased(SO_Equipment newItem)
+    private void HandleItemPurchased(EquipmentData newItem)
     {
         _inventory.Add(newItem);
         _playerMoney.SubtractMoney(newItem.purchasePrice);

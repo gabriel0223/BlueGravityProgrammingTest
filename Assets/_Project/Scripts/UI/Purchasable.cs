@@ -18,9 +18,9 @@ public class Purchasable : MonoBehaviour
     [SerializeField] private float _shakeDuration;
     [SerializeField] private float _destroyAnimationDuration;
 
-    private SO_Equipment _item;
+    private EquipmentData _item;
 
-    public void Initialize(SO_Equipment item)
+    public void Initialize(EquipmentData item)
     {
         _item = item;
 
@@ -39,23 +39,23 @@ public class Purchasable : MonoBehaviour
         //this adjustment needed to be done hardcoded because of the way the art pack was exported :(
         switch (_item.equipmentType)
         {
-            case SO_Equipment.EquipmentType.Top:
+            case EquipmentData.EquipmentType.Top:
                 iconScale = 3.3f;
                 iconPosition = new Vector2(-272, 62);
                 break;
-            case SO_Equipment.EquipmentType.Head:
+            case EquipmentData.EquipmentType.Head:
                 iconScale = 2.6f;
                 iconPosition = new Vector2(-272, -20);
                 break;
-            case SO_Equipment.EquipmentType.Bottom:
+            case EquipmentData.EquipmentType.Bottom:
                 iconScale = 3.3f;
                 iconPosition = new Vector2(-272, 103);
                 break;
-            case SO_Equipment.EquipmentType.Face:
+            case EquipmentData.EquipmentType.Face:
                 iconScale = 3.3f;
                 iconPosition = new Vector2(-275, 4);
                 break;
-            case SO_Equipment.EquipmentType.Weapon:
+            case EquipmentData.EquipmentType.Weapon:
             default:
                 iconScale = 3.7f;
                 iconPosition = new Vector2(-316, 132);
@@ -66,7 +66,7 @@ public class Purchasable : MonoBehaviour
         _itemIcon.transform.localPosition = iconPosition;
     }
 
-    public SO_Equipment GetItem()
+    public EquipmentData GetItem()
     {
         return _item;
     }

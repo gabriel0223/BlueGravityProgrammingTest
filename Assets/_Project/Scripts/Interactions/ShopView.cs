@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ShopController : MonoBehaviour
+public class ShopView : MonoBehaviour
 {
-    public static event Action<SO_Equipment> OnPlayerBuyItem;
+    public static event Action<EquipmentData> OnPlayerBuyItem;
 
     [SerializeField] private Purchasable _purchasablePrefab;
     [SerializeField] private Transform _purchasableScrollList;
 
-    private List<SO_Equipment> _itemsForSale = new List<SO_Equipment>();
+    private List<EquipmentData> _itemsForSale = new List<EquipmentData>();
     private InteractiveShop _interactiveShop;
     private PlayerMoneyController _playerMoney;
     private InventoryView _playerInventoryWindow;
@@ -45,7 +45,7 @@ public class ShopController : MonoBehaviour
         _playerInventoryWindow.OnPlayerSellItem += AddItemToShop;
     }
 
-    private void AddItemToShop(SO_Equipment item)
+    private void AddItemToShop(EquipmentData item)
     {
         _itemsForSale.Add(item);
 
@@ -57,7 +57,7 @@ public class ShopController : MonoBehaviour
 
     private void HandleTryPurchase(Purchasable purchasable)
     {
-        SO_Equipment item = purchasable.GetItem();
+        EquipmentData item = purchasable.GetItem();
 
         if (_playerMoney.Money < item.purchasePrice)
         {
@@ -71,7 +71,7 @@ public class ShopController : MonoBehaviour
 
     private void PurchaseItem(Purchasable purchasable)
     {
-        SO_Equipment item = purchasable.GetItem();
+        EquipmentData item = purchasable.GetItem();
 
         _itemsForSale.Remove(item);
         purchasable.OnPurchaseSuccessful();

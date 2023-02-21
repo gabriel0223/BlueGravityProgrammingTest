@@ -9,7 +9,7 @@ public class InteractiveShop : MonoBehaviour, IInteractive
 {
     public static event Action<InteractiveShop> OnShoppingStart;
 
-    [SerializeField] private List<SO_Equipment> _itemsForSale;
+    [SerializeField] private List<EquipmentData> _itemsForSale;
 
     public void Interact(Transform playerTransform)
     {
@@ -20,13 +20,13 @@ public class InteractiveShop : MonoBehaviour, IInteractive
     {
     }
 
-    public List<SO_Equipment> GetItems()
+    public List<EquipmentData> GetItems()
     {
         return _itemsForSale;
     }
 
-    public void SetItems(List<SO_Equipment> newItemsForSale)
+    public void SetItems(List<EquipmentData> newItemsForSale)
     {
-        _itemsForSale = new List<SO_Equipment>(newItemsForSale);
+        _itemsForSale = new List<EquipmentData>(newItemsForSale);
     }
 }

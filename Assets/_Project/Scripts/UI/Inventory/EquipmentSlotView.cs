@@ -10,9 +10,9 @@ public class EquipmentSlotView : InventorySlotView
     public event Action<EquipmentSlotView> OnSlotSelected;
 
     [SerializeField] private SpriteRenderer _spriteToChange;
-    [SerializeField] private SO_Equipment.EquipmentType _slotType;
+    [SerializeField] private EquipmentData.EquipmentType _slotType;
 
-    public override void AddItem(SO_Equipment item, bool hoverAnimation)
+    public override void AddItem(EquipmentData item, bool hoverAnimation)
     {
         base.AddItem(item, hoverAnimation);
 
@@ -24,7 +24,7 @@ public class EquipmentSlotView : InventorySlotView
         _spriteToChange.sprite = GetItem().equipmentSprite;
     }
 
-    public SO_Equipment.EquipmentType GetEquipmentType()
+    public EquipmentData.EquipmentType GetEquipmentType()
     {
         return _slotType;
     }

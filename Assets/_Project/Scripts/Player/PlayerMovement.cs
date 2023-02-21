@@ -10,14 +10,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _movementSpeed;
 
-    private void Start()
+    private void Update()
     {
-        _inputManager.OnMove += HandleMovement;
-    }
-
-    private void OnDestroy()
-    {
-        _inputManager.OnMove -= HandleMovement;
+        HandleMovement(_inputManager.MoveInput);
     }
 
     private void HandleMovement(Vector2 moveInput)

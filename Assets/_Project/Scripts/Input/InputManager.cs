@@ -17,6 +17,8 @@ public class InputManager : MonoBehaviour
 
     private MyInputActions _inputActions;
 
+    public Vector2 MoveInput { get; private set; }
+
     private void Awake()
     {
         _inputActions = new MyInputActions();
@@ -38,6 +40,11 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         Initialize();
+    }
+
+    private void Update()
+    {
+        MoveInput = _inputActions.Gameplay.Move.ReadValue<Vector2>();
     }
 
     private void OnEnable()

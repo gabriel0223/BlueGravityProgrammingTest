@@ -14,14 +14,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private PlayerMoneyController _playerMoney;
     [SerializeField] private Transform _canvas;
-    [SerializeField] private ShopController _shopViewPrefab;
+    [SerializeField] private ShopView _shopViewPrefab;
     [Space]
     [SerializeField] private InventoryView _inventoryWindow;
     [SerializeField] private GameObject _equipmentWindow;
     [SerializeField] private Button _quitButton;
     [SerializeField] private Button _closeButton;
 
-    private ShopController _shopWindow;
+    private ShopView _shopWindow;
 
     private void Start()
     {
