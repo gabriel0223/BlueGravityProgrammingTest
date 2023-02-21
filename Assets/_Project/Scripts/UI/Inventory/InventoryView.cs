@@ -8,13 +8,15 @@ using UnityEngine.UI;
 
 public class InventoryView : MonoBehaviour
 {
-    public event Action<SO_Equipment> OnEquipItem;
+    public event Action<SO_Equipment> OnPlayerEquipItem;
+    public event Action<SO_Equipment> OnPlayerSellItem;
 
     [SerializeField] private Transform _itemSelector;
     [SerializeField] private ItemInfoWindow _itemInfoWindow;
     [SerializeField] private InventorySlotView[] _inventorySlots;
     [SerializeField] private EquipmentSlotView[] _equipmentSlots;
-    
+
+    private InventoryMode _inventoryMode;
     private bool _isDraggingItem;
     private SO_Equipment _currentSelectedItem;
     private readonly Vector3 _dragItemPositionOffset = new Vector2(30, -30);
@@ -28,6 +30,8 @@ public class InventoryView : MonoBehaviour
 
     public void Initialize()
     {
+        ShopController.OnPlayerBuyItem += AddItem;
+
         foreach (InventorySlotView slot in _inventorySlots)
         {
             slot.SetItemInfoWindow(_itemInfoWindow);
@@ -39,6 +43,11 @@ public class InventoryView : MonoBehaviour
             slot.SetItemInfoWindow(_itemInfoWindow);
             slot.OnSlotSelected += SelectEquipmentSlot;
         }
+    }
+
+    private void OnDestroy()
+    {
+        ShopController.OnPlayerBuyItem -= AddItem;
     }
 
     public void AddItem(SO_Equipment equipment)
@@ -68,15 +77,20 @@ public class InventoryView : MonoBehaviour
         }
     }
 
+    public void SetInventoryMode(InventoryMode newInventoryMode)
+    {
+        _inventoryMode = newInventoryMode;
+    }
+
     private void SelectInventorySlot(InventorySlotView slot)
     {
-        // if (UIManager.instance.uiState == UIManager.UIStates.Shopping)
-        // {
-        //     UIManager.instance.shopController.SellItem(slotView.item);
-        //     slotView.DeleteItem();
-        //     return;
-        // }
-        
+        if (_inventoryMode == InventoryMode.Shopping)
+        {
+            SellItemFromSlot(slot);
+
+            return;
+        }
+
         if (_isDraggingItem)
         {
             DetachItemFromMouse();
@@ -103,6 +117,14 @@ public class InventoryView : MonoBehaviour
         }
     }
 
+    private void SellItemFromSlot(InventorySlotView slot)
+    {
+        SO_Equipment itemToBeSold = slot.GetItem();
+
+        slot.RemoveItem();
+        OnPlayerSellItem?.Invoke(itemToBeSold);
+    }
+
     private void SelectEquipmentSlot(EquipmentSlotView slot)
     {
         if (!_isDraggingItem || slot.GetItem().equipmentType != _currentSelectedItem.equipmentType)
@@ -123,7 +145,7 @@ public class InventoryView : MonoBehaviour
 
         AudioManager.instance.Play(Sounds.DeselectItem);
 
-        OnEquipItem?.Invoke(slot.GetItem());
+        OnPlayerEquipItem?.Invoke(slot.GetItem());
     }
 
     private void GrabItemFromSlot(InventorySlotView slot)

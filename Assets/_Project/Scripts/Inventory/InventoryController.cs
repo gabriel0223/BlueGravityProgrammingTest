@@ -6,6 +6,7 @@ using EquipmentType = SO_Equipment.EquipmentType;
 
 public class InventoryController : MonoBehaviour
 {
+    [SerializeField] private PlayerMoneyController _playerMoney;
     [SerializeField] private InventoryView _inventoryView;
     [Space]
     [SerializeField] private List<SO_Equipment> _initialInventory = new();
@@ -19,12 +20,18 @@ public class InventoryController : MonoBehaviour
     {
         Initialize();
 
-        _inventoryView.OnEquipItem += HandleItemEquipped;
+        _inventoryView.OnPlayerEquipItem += HandleItemEquipped;
+        _inventoryView.OnPlayerSellItem += HandleItemSold;
+
+        ShopController.OnPlayerBuyItem += HandleItemPurchased;
     }
 
     private void OnDestroy()
     {
-        _inventoryView.OnEquipItem -= HandleItemEquipped;
+        _inventoryView.OnPlayerEquipItem -= HandleItemEquipped;
+        _inventoryView.OnPlayerSellItem -= HandleItemSold;
+
+        ShopController.OnPlayerBuyItem -= HandleItemPurchased;
     }
 
     private void Initialize()
@@ -62,5 +69,21 @@ public class InventoryController : MonoBehaviour
         {
             _inventoryView.AddEquipment(equipment);
         }
+    }
+
+    private void HandleItemSold(SO_Equipment soldItem)
+    {
+        _inventory.Remove(soldItem);
+        _playerMoney.AddMoney(soldItem.sellingPrice);
+
+        AudioManager.instance.Play(Sounds.ItemSell);
+    }
+
+    private void HandleItemPurchased(SO_Equipment newItem)
+    {
+        _inventory.Add(newItem);
+        _playerMoney.SubtractMoney(newItem.purchasePrice);
+
+        AudioManager.instance.Play(Sounds.ItemPurchase);
     }
 }

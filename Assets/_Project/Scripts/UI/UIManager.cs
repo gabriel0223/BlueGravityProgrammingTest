@@ -12,21 +12,14 @@ public class UIManager : MonoBehaviour
     public event Action OnCloseMenu;
 
     [SerializeField] private InputManager _inputManager;
+    [SerializeField] private PlayerMoneyController _playerMoney;
     [SerializeField] private Transform _canvas;
     [SerializeField] private ShopController _shopViewPrefab;
+    [Space]
     [SerializeField] private InventoryView _inventoryWindow;
     [SerializeField] private GameObject _equipmentWindow;
     [SerializeField] private Button _quitButton;
     [SerializeField] private Button _closeButton;
-
-    [Header("REFERENCES")]
-    public PlayerMenuView playerMenuView;
-    public ShopController shopController;
-    public InventoryView inventoryView;
-    public GameObject inventoryWindow;
-    public GameObject itemInfoWindow;
-    public GameObject playerMoneyWindow;
-    public static UIManager instance;
 
     private ShopController _shopWindow;
 
@@ -49,6 +42,8 @@ public class UIManager : MonoBehaviour
     private void OpenCustomizationMenu()
     {
         SetInventoryActive(true);
+        _inventoryWindow.SetInventoryMode(InventoryMode.Normal);
+
         SetEquipmentWindowActive(true);
         SetQuitButtonActive(true);
         SetCloseButtonActive(true);
@@ -81,23 +76,31 @@ public class UIManager : MonoBehaviour
     {
         _shopWindow = Instantiate(_shopViewPrefab, _canvas);
         _shopWindow.Initialize(shop);
+        _shopWindow.SetPlayerMoney(_playerMoney);
+        _shopWindow.SetInventoryWindow(_inventoryWindow);
 
         SetInventoryActive(true);
+        _inventoryWindow.SetInventoryMode(InventoryMode.Shopping);
+
         SetCloseButtonActive(true);
 
         AudioManager.instance.Play(Sounds.Pop01);
         _closeButton.onClick.AddListener(CloseShopWindow);
+
+        OnOpenMenu?.Invoke();
     }
 
     private void CloseShopWindow()
     {
-        Destroy(_shopWindow);
+        Destroy(_shopWindow.gameObject);
 
         SetInventoryActive(false);
         SetCloseButtonActive(false);
 
         AudioManager.instance.Play(Sounds.ClickBack);
         _closeButton.onClick.RemoveAllListeners();
+
+        OnCloseMenu?.Invoke();
     }
 
     private void HandleEscapeInput()
@@ -107,7 +110,14 @@ public class UIManager : MonoBehaviour
 
     private void HandleReturnInput()
     {
-        CloseCustomizationMenu();
+        if (_shopWindow != null)
+        {
+            CloseShopWindow();
+        }
+        else
+        {
+            CloseCustomizationMenu();
+        }
     }
 
     private void SetInventoryActive(bool value)

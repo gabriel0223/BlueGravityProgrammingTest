@@ -43047,18 +43047,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputManager: {fileID: 6705440282894533168}
+  _playerMoney: {fileID: 6705440282894533167}
   _canvas: {fileID: 1227931979}
   _shopViewPrefab: {fileID: 4880507654012152943, guid: 636a06b1b481fb541b2773b3983ebc8f, type: 3}
   _inventoryWindow: {fileID: 1630738915}
   _equipmentWindow: {fileID: 496840290}
   _quitButton: {fileID: 1291810660}
   _closeButton: {fileID: 2040480382}
-  playerMenuView: {fileID: 0}
-  shopController: {fileID: 0}
-  inventoryView: {fileID: 0}
-  inventoryWindow: {fileID: 1446146743}
-  itemInfoWindow: {fileID: 99835147}
-  playerMoneyWindow: {fileID: 469494798}
 --- !u!4 &1516502965
 Transform:
   m_ObjectHideFlags: 0
@@ -43687,7 +43682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.49, y: -0.25, z: -10}
+  m_LocalPosition: {x: -4.4869213, y: -0.31220913, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54978,7 +54973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000011013140161}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.7, y: 0.7, z: 38.867573}
+  m_LocalPosition: {x: 34.51, y: -36.3, z: 38.867573}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -55414,6 +55409,34 @@ PrefabInstance:
       propertyPath: _items.Array.data[5]
       value: 
       objectReference: {fileID: 11400000, guid: 7327b2f78d180d24ba2140e3d8df224f, type: 2}
+    - target: {fileID: 3163862344039419763, guid: d8585d73ef2147646a0202a430fd3f42, type: 3}
+      propertyPath: _itemsForSale.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3163862344039419763, guid: d8585d73ef2147646a0202a430fd3f42, type: 3}
+      propertyPath: _itemsForSale.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: b32df3a1b58a3874cb0833593a21476d, type: 2}
+    - target: {fileID: 3163862344039419763, guid: d8585d73ef2147646a0202a430fd3f42, type: 3}
+      propertyPath: _itemsForSale.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4de83bfae2020f64f963fe3f80fe26d1, type: 2}
+    - target: {fileID: 3163862344039419763, guid: d8585d73ef2147646a0202a430fd3f42, type: 3}
+      propertyPath: _itemsForSale.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 88f2b50158480f649993613e91e8e881, type: 2}
+    - target: {fileID: 3163862344039419763, guid: d8585d73ef2147646a0202a430fd3f42, type: 3}
+      propertyPath: _itemsForSale.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: bf6f4bea5c847ee42b4ec07ad92655bd, type: 2}
+    - target: {fileID: 3163862344039419763, guid: d8585d73ef2147646a0202a430fd3f42, type: 3}
+      propertyPath: _itemsForSale.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 60d31d33bbc032348934f4f56e0874df, type: 2}
+    - target: {fileID: 3163862344039419763, guid: d8585d73ef2147646a0202a430fd3f42, type: 3}
+      propertyPath: _itemsForSale.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7327b2f78d180d24ba2140e3d8df224f, type: 2}
     - target: {fileID: 3163862344039419764, guid: d8585d73ef2147646a0202a430fd3f42, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -55826,11 +55849,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bac140a297751a4a863ab7356032240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerMoney: {fileID: 6705440282894533167}
   _inventoryView: {fileID: 1630738915}
-  _initialInventory:
-  - {fileID: 11400000, guid: 88f2b50158480f649993613e91e8e881, type: 2}
-  - {fileID: 11400000, guid: 60d31d33bbc032348934f4f56e0874df, type: 2}
-  - {fileID: 11400000, guid: 7327b2f78d180d24ba2140e3d8df224f, type: 2}
+  _initialInventory: []
   _initialEquippedItems:
     _serializedList:
     - Key: 0

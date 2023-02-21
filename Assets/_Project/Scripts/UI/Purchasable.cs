@@ -8,38 +8,36 @@ using UnityEngine.UI;
 
 public class Purchasable : MonoBehaviour
 {
-    [SerializeField] private Image purchasableIcon;
-    [SerializeField] private TextMeshProUGUI purchasableName;
-    [SerializeField] private TextMeshProUGUI purchasablePrice;
-    private InventoryView _inventoryView;
-    private ShopController shopController;
-    private PlayerMoneyController playerMoney;
-    
-    [Space(10)]
-    public SO_Equipment item;
+    public event Action<Purchasable> OnTryPurchase;
 
-    private void OnEnable()
+    [SerializeField] private Image _itemIcon;
+    [SerializeField] private TextMeshProUGUI _itemName;
+    [SerializeField] private TextMeshProUGUI _itemPrice;
+    [Space] 
+    [SerializeField] private float _shakeStrength;
+    [SerializeField] private float _shakeDuration;
+    [SerializeField] private float _destroyAnimationDuration;
+
+    private SO_Equipment _item;
+
+    public void Initialize(SO_Equipment item)
     {
+        _item = item;
+
         UpdatePurchasableUI();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void UpdatePurchasableUI()
     {
-        playerMoney = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoneyController>();
-    }
-
-    public void UpdatePurchasableUI()
-    {
-        purchasableIcon.sprite = item.equipmentSprite;
-        purchasableName.SetText(item.name);
-        purchasablePrice.SetText(item.purchasePrice.ToString());
+        _itemIcon.sprite = _item.equipmentSprite;
+        _itemName.SetText(_item.name);
+        _itemPrice.SetText(_item.purchasePrice.ToString());
 
         float iconScale;
         Vector2 iconPosition;
         
         //this adjustment needed to be done hardcoded because of the way the art pack was exported :(
-        switch (item.equipmentType)
+        switch (_item.equipmentType)
         {
             case SO_Equipment.EquipmentType.Top:
                 iconScale = 3.3f;
@@ -64,24 +62,28 @@ public class Purchasable : MonoBehaviour
                 break;
         }
         
-        purchasableIcon.transform.localScale = Vector3.one * iconScale;
-        purchasableIcon.GetComponent<RectTransform>().localPosition = iconPosition;
+        _itemIcon.transform.localScale = Vector3.one * iconScale;
+        _itemIcon.transform.localPosition = iconPosition;
     }
 
-    public void Purchase()
+    public SO_Equipment GetItem()
     {
-        if (playerMoney.Money < item.purchasePrice)
-        {
-            transform.DOShakePosition(0.25f, 5);
-            AudioManager.instance.Play(Sounds.Error);
-        }
-        else
-        {
-            AudioManager.instance.Play(Sounds.ItemPurchase);
-            _inventoryView.GetFirstEmptySlot().AddItem(item, false);
-            playerMoney.SubtractMoney(item.purchasePrice);
-            shopController.RemoveItemFromShop(item);
-            transform.DOScaleY(0, 0.5f).OnComplete(() => Destroy(gameObject));
-        }
+        return _item;
+    }
+
+    public void TryPurchase()
+    {
+        OnTryPurchase.Invoke(this);
+    }
+
+    public void PlayPurchaseErrorAnimation()
+    {
+        transform.DOShakePosition(_shakeDuration, _shakeStrength);
+        AudioManager.instance.Play(Sounds.Error);
+    }
+
+    public void OnPurchaseSuccessful()
+    {
+        transform.DOScaleY(0, _destroyAnimationDuration).OnComplete(() => Destroy(gameObject));
     }
 }

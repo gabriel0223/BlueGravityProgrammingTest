@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4880507652207295189}
   - component: {fileID: 4880507652207295194}
   m_Layer: 5
-  m_Name: Items on Sale
+  m_Name: Items for Sale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -441,9 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9f2b990ae9ab445837477606cc551e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  purchasablePrefab: {fileID: 9199623341921652457, guid: 235eafb8d2b558940b42275e49b9fc6e, type: 3}
-  itemsOnSale: {fileID: 4880507652207295188}
-  soldOutText: {fileID: 0}
+  _purchasablePrefab: {fileID: 9199623341921652459, guid: 235eafb8d2b558940b42275e49b9fc6e, type: 3}
+  _purchasableScrollList: {fileID: 4880507652207295188}
 --- !u!1 &4880507654067089931
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +562,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 4880507654067089934}
   m_HandleRect: {fileID: 4880507653086094687}
   m_Direction: 2
   m_Value: 0

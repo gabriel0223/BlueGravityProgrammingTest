@@ -9,8 +9,7 @@ public class InteractiveShop : MonoBehaviour, IInteractive
 {
     public static event Action<InteractiveShop> OnShoppingStart;
 
-    [Header("list of items being sold in this shop")]
-    public List<SO_Equipment> _items;
+    [SerializeField] private List<SO_Equipment> _itemsForSale;
 
     public void Interact(Transform playerTransform)
     {
@@ -19,11 +18,15 @@ public class InteractiveShop : MonoBehaviour, IInteractive
 
     public void OnInteractionComplete()
     {
-        throw new NotImplementedException();
     }
 
     public List<SO_Equipment> GetItems()
     {
-        return _items;
+        return _itemsForSale;
+    }
+
+    public void SetItems(List<SO_Equipment> newItemsForSale)
+    {
+        _itemsForSale = new List<SO_Equipment>(newItemsForSale);
     }
 }

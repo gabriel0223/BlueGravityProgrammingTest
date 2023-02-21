@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - speakerData: {fileID: 11400000, guid: 80e2d45e3662655469ff18dff1345618, type: 2}
-    text: I really think you should hire him.
+    text: You know, I really think you should hire him.
   - speakerData: {fileID: 11400000, guid: 92628e6d9fafc0e4a80bd41542c4d2c7, type: 2}
     text: What?
   - speakerData: {fileID: 11400000, guid: 80e2d45e3662655469ff18dff1345618, type: 2}

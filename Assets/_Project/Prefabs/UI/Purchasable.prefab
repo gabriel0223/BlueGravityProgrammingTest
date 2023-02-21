@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9199623341698917959}
   - component: {fileID: 9199623341698917954}
   m_Layer: 5
-  m_Name: Purchase Button
+  m_Name: Buy Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9199623341921652459}
         m_TargetAssemblyTypeName: Purchasable, Assembly-CSharp
-        m_MethodName: Purchase
+        m_MethodName: TryPurchase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -242,10 +242,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d772e6529ee15458566a26a2e877ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  purchasableIcon: {fileID: 9199623342945668621}
-  purchasableName: {fileID: 9199623342147512636}
-  purchasablePrice: {fileID: 9199623342555434799}
-  item: {fileID: 11400000, guid: bf6f4bea5c847ee42b4ec07ad92655bd, type: 2}
+  _itemIcon: {fileID: 9199623342945668621}
+  _itemName: {fileID: 9199623342147512636}
+  _itemPrice: {fileID: 9199623342555434799}
+  _shakeStrength: 10
+  _shakeDuration: 0.25
+  _destroyAnimationDuration: 0.25
 --- !u!1 &9199623342147512626
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Purchase
+  m_text: Buy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 671fe8d2d24369047aca2bfd2b5b0acb, type: 2}
   m_sharedMaterial: {fileID: -1166718982868223921, guid: 671fe8d2d24369047aca2bfd2b5b0acb, type: 2}
