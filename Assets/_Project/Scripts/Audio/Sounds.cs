@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class Sounds
 {
+    public const string ThemeSong = "ThemeSong";
+    public const string DefaultVoice = "DefaultVoice";
     public const string ClickBack = "ClickBack";
     public const string Pop01 = "Pop01";
     public const string Hover = "Hover";

@@ -14,7 +14,6 @@ public class DialogueSystem : MonoBehaviour
 
     private IInteractive _currentInteraction;
 
-    // Start is called before the first frame update
     void Start()
     {
         NpcController.OnDialogueStart += StartNpcDialogue;

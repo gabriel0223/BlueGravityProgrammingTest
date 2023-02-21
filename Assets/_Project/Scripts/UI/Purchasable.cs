@@ -18,12 +18,6 @@ public class Purchasable : MonoBehaviour
     [Space(10)]
     public SO_Equipment item;
 
-    private void Awake()
-    {
-        _inventoryView = UIManager.instance.inventoryView;
-        shopController = UIManager.instance.shopController;
-    }
-
     private void OnEnable()
     {
         UpdatePurchasableUI();
@@ -44,7 +38,7 @@ public class Purchasable : MonoBehaviour
         float iconScale;
         Vector2 iconPosition;
         
-        //ADJUST ICON SCALE AND POSITION
+        //this adjustment needed to be done hardcoded because of the way the art pack was exported :(
         switch (item.equipmentType)
         {
             case SO_Equipment.EquipmentType.Top:

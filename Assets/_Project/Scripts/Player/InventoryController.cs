@@ -6,8 +6,6 @@ using EquipmentType = SO_Equipment.EquipmentType;
 
 public class InventoryController : MonoBehaviour
 {
-    [SerializeField] private InputManager _inputManager;
-    [SerializeField] private PlayerMenuView _playerMenuView;
     [SerializeField] private InventoryView _inventoryView;
     [Space]
     [SerializeField] private List<SO_Equipment> _initialInventory = new();
@@ -21,17 +19,11 @@ public class InventoryController : MonoBehaviour
     {
         Initialize();
 
-        _inputManager.OnEscape += HandleEscapeInput;
-        _inputManager.OnReturn += HandleReturnInput;
-
         _inventoryView.OnEquipItem += HandleItemEquipped;
     }
 
     private void OnDestroy()
     {
-        _inputManager.OnEscape -= HandleEscapeInput;
-        _inputManager.OnReturn -= HandleReturnInput;
-
         _inventoryView.OnEquipItem -= HandleItemEquipped;
     }
 
@@ -41,19 +33,6 @@ public class InventoryController : MonoBehaviour
         _equippedItems = new Dictionary<EquipmentType, SO_Equipment>(_initialEquippedItems);
 
         InitializeInventoryUi();
-    }
-
-    private void HandleEscapeInput()
-    {
-        _playerMenuView.OpenPlayerMenu();
-    }
-
-    private void HandleReturnInput()
-    {
-        if (_playerMenuView.gameObject.activeSelf)
-        {
-            _playerMenuView.ClosePlayerMenu();
-        }
     }
 
     private void HandleItemEquipped(SO_Equipment newEquippedItem)

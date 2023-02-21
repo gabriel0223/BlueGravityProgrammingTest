@@ -7,18 +7,23 @@ using UnityEngine.UI;
 
 public class InteractiveShop : MonoBehaviour, IInteractive
 {
-    [SerializeField] private ShopController _shopController;
-    
+    public static event Action<InteractiveShop> OnShoppingStart;
+
     [Header("list of items being sold in this shop")]
     public List<SO_Equipment> _items;
 
     public void Interact(Transform playerTransform)
     {
-        _shopController.OpenShop(this, _items);
+        OnShoppingStart?.Invoke(this);
     }
 
     public void OnInteractionComplete()
     {
         throw new NotImplementedException();
+    }
+
+    public List<SO_Equipment> GetItems()
+    {
+        return _items;
     }
 }

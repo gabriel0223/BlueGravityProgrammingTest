@@ -103,7 +103,7 @@ public class DialogueView : MonoBehaviour
         int lettersTypedCount = 0;
 
         SpeakerData speaker = _dialogueData.sentences[_sentenceIndex].speakerData;
-        string speakerVoice = speaker == null || speaker.VoiceAudio.Equals("")? "DefaultVoice" : speaker.VoiceAudio;
+        string speakerVoice = speaker == null || speaker.VoiceAudio.Equals("")? Sounds.DefaultVoice : speaker.VoiceAudio;
 
         _dialogueCompleteIcon.SetActive(false);
         

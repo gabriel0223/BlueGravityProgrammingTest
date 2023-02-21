@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
     public event Action OnReturn;
 
     [SerializeField] private DialogueSystem _dialogueSystem;
-    [SerializeField] private PlayerMenuView _playerMenuView;
+    [SerializeField] private UIManager _uiManager;
 
     private MyInputActions _inputActions;
 
@@ -31,8 +31,8 @@ public class InputManager : MonoBehaviour
         _dialogueSystem.OnStartDialogue += SwitchToUIActionMap;
         _dialogueSystem.OnEndDialogue += SwitchToGameplayActionMap;
 
-        _playerMenuView.OnOpenPlayerMenu += SwitchToUIActionMap;
-        _playerMenuView.OnClosePlayerMenu += SwitchToGameplayActionMap;
+        _uiManager.OnOpenMenu += SwitchToUIActionMap;
+        _uiManager.OnCloseMenu += SwitchToGameplayActionMap;
     }
 
     private void Start()
@@ -61,8 +61,8 @@ public class InputManager : MonoBehaviour
         _dialogueSystem.OnStartDialogue -= SwitchToUIActionMap;
         _dialogueSystem.OnEndDialogue -= SwitchToGameplayActionMap;
 
-        _playerMenuView.OnOpenPlayerMenu -= SwitchToUIActionMap;
-        _playerMenuView.OnClosePlayerMenu -= SwitchToGameplayActionMap;
+        _uiManager.OnOpenMenu -= SwitchToUIActionMap;
+        _uiManager.OnCloseMenu -= SwitchToGameplayActionMap;
     }
 
     private void HandleMoveInput(InputAction.CallbackContext ctx)
