@@ -10,12 +10,12 @@ public class ShopController : MonoBehaviour
     [SerializeField] private Transform itemsOnSale;
     [SerializeField] private GameObject soldOutText;
     private InteractiveShop activeInteractiveShop;
-    private PlayerMoney playerMoney;
+    private PlayerMoneyController playerMoney;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerMoney = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoney>();
+        playerMoney = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoneyController>();
     }
 
     private void OnEnable()
@@ -34,13 +34,11 @@ public class ShopController : MonoBehaviour
 
     public void OpenShop(InteractiveShop interactiveShop, List<SO_Equipment> itemList)
     {
-        UIManager.instance.interactingWithUI = true;
-        UIManager.instance.uiState = UIManager.UIStates.Shopping;
         gameObject.SetActive(true);
-        UIManager.instance.inventoryWindow.transform.SetParent(transform); //inventory now is a child of the shop
-        UIManager.instance.playerMoneyWindow.transform.SetParent(transform); //money window now is a child of the shop
+        // UIManager.instance.inventoryWindow.transform.SetParent(transform); //inventory now is a child of the shop
+        // UIManager.instance.playerMoneyWindow.transform.SetParent(transform); //money window now is a child of the shop
         activeInteractiveShop = interactiveShop;
-        AudioManager.instance.Play("Pop01");
+        AudioManager.instance.Play(Sounds.Pop01);
         
         foreach (var item in itemList)
         {
@@ -56,7 +54,7 @@ public class ShopController : MonoBehaviour
         UIManager.instance.uiState = UIManager.UIStates.Idle;
         UIManager.instance.inventoryWindow.transform.SetParent(UIManager.instance.playerMenuView.transform); //inventory is a child of the player menu again
         UIManager.instance.playerMoneyWindow.transform.SetParent(UIManager.instance.playerMenuView.transform); //money window is a child of the player menu again
-        AudioManager.instance.Play("ClickBack");
+        AudioManager.instance.Play(Sounds.ClickBack);
         
         if (UIManager.instance.itemInfoWindow.activeSelf)
             UIManager.instance.itemInfoWindow.SetActive(false);
@@ -71,7 +69,7 @@ public class ShopController : MonoBehaviour
 
     public void AddItemToShop(SO_Equipment item)
     {
-        activeInteractiveShop.items.Add(item);
+        activeInteractiveShop._items.Add(item);
         
         var newPurchasable = Instantiate(purchasablePrefab, itemsOnSale).GetComponent<Purchasable>();
         newPurchasable.item = item;
@@ -80,13 +78,13 @@ public class ShopController : MonoBehaviour
     
     public void RemoveItemFromShop(SO_Equipment item)
     {
-        activeInteractiveShop.items.Remove(item);
+        activeInteractiveShop._items.Remove(item);
     }
 
     public void SellItem(SO_Equipment item)
     {
         AddItemToShop(item);
-        playerMoney.UpdateCoins(item.sellingPrice);
-        AudioManager.instance.Play("ItemSell");
+        playerMoney.AddMoney(item.sellingPrice);
+        AudioManager.instance.Play(Sounds.ItemSell);
     }
 }

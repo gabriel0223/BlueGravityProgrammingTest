@@ -1,37 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractiveShop : MonoBehaviour, IInteractive
 {
-    private ShopController shopController;
+    [SerializeField] private ShopController _shopController;
     
     [Header("list of items being sold in this shop")]
-    public List<SO_Equipment> items;
-
-    private void Awake()
-    {
-        shopController = UIManager.instance.shopController;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<SO_Equipment> _items;
 
     public void Interact(Transform playerTransform)
     {
-        if (UIManager.instance.interactingWithUI) return;
-        
-        shopController.OpenShop(this, items);
+        _shopController.OpenShop(this, _items);
     }
 
     public void OnInteractionComplete()

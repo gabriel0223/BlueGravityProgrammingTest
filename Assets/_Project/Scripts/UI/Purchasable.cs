@@ -13,7 +13,7 @@ public class Purchasable : MonoBehaviour
     [SerializeField] private TextMeshProUGUI purchasablePrice;
     private InventoryView _inventoryView;
     private ShopController shopController;
-    private PlayerMoney playerMoney;
+    private PlayerMoneyController playerMoney;
     
     [Space(10)]
     public SO_Equipment item;
@@ -32,15 +32,9 @@ public class Purchasable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerMoney = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoney>();
+        playerMoney = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoneyController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public void UpdatePurchasableUI()
     {
         purchasableIcon.sprite = item.equipmentSprite;
@@ -82,16 +76,16 @@ public class Purchasable : MonoBehaviour
 
     public void Purchase()
     {
-        if (playerMoney.playerCoins < item.purchasePrice)
+        if (playerMoney.Money < item.purchasePrice)
         {
             transform.DOShakePosition(0.25f, 5);
-            AudioManager.instance.Play("Error");
+            AudioManager.instance.Play(Sounds.Error);
         }
         else
         {
-            AudioManager.instance.Play("ItemPurchase");
+            AudioManager.instance.Play(Sounds.ItemPurchase);
             _inventoryView.GetFirstEmptySlot().AddItem(item, false);
-            playerMoney.UpdateCoins(-item.purchasePrice);
+            playerMoney.SubtractMoney(item.purchasePrice);
             shopController.RemoveItemFromShop(item);
             transform.DOScaleY(0, 0.5f).OnComplete(() => Destroy(gameObject));
         }

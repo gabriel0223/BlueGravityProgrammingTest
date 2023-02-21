@@ -19,8 +19,6 @@ public class InteractiveObjectController : MonoBehaviour, IInteractive
     public void Interact(Transform playerTransform)
     {
         OnDialogueStart?.Invoke(this, _hasBeenInteracted? _repeatedInteractionDialogueData : _dialogueData);
-
-        _hasBeenInteracted = true;
     }
 
     public void OnInteractionComplete()
@@ -29,6 +27,8 @@ public class InteractiveObjectController : MonoBehaviour, IInteractive
         {
             return;
         }
+        
+        _hasBeenInteracted = true;
 
         _onInteractionComplete.Invoke();
     }

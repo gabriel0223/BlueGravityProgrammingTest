@@ -12,16 +12,4 @@ public class SO_Equipment : SO_Item
     
     public EquipmentType equipmentType;
     public Sprite equipmentSprite;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

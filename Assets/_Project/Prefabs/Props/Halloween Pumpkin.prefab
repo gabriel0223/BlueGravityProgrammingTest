@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3718755190383626767}
   - component: {fileID: 3718755190383626766}
   - component: {fileID: 3718755190383626761}
-  - component: {fileID: 3718755190383626760}
   m_Layer: 8
   m_Name: Halloween Pumpkin
   m_TagString: Untagged
@@ -143,31 +142,7 @@ MonoBehaviour:
   _repeatedInteractionDialogueData: {fileID: 11400000, guid: c3c850b43e6726c42b0f429b41562772, type: 2}
   _onInteractionComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3718755190383626760}
-        m_TargetAssemblyTypeName: MoneyPumpkin, Assembly-CSharp
-        m_MethodName: GiveMoneyToPlayer
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3718755190383626760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3718755190383626762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e166c2ff9fcac140949491729e17c8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls: []
 --- !u!1 &3718755191994788524
 GameObject:
   m_ObjectHideFlags: 0
