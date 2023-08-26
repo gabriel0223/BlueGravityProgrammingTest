@@ -43522,6 +43522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329d6b0f127eb6c4c8bf0d73f8aadd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventoryController: {fileID: 6705440282894533166}
   _itemSelector: {fileID: 639957140}
   _itemInfoWindow: {fileID: 99835149}
   _inventorySlots:
@@ -43667,7 +43668,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4869213, y: -0.31220913, z: -10}
+  m_LocalPosition: {x: -8.49, y: -0.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55919,7 +55920,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMoney: {fileID: 6705440282894533167}
-  _inventoryView: {fileID: 1630738915}
   _initialInventory: []
   _initialEquippedItems:
     _serializedList:

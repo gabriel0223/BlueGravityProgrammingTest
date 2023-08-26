@@ -80,7 +80,6 @@ public class UIManager : MonoBehaviour
         _shopWindow = Instantiate(_shopViewPrefab, _canvas);
         _shopWindow.Initialize(shop);
         _shopWindow.SetPlayerMoney(_playerMoney);
-        _shopWindow.SetInventoryWindow(_inventoryWindow);
 
         SetInventoryActive(true);
         _inventoryWindow.SetInventoryMode(InventoryMode.Shopping);

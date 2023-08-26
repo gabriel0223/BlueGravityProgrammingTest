@@ -16,11 +16,16 @@ public class ShopView : MonoBehaviour
     private PlayerMoneyController _playerMoney;
     private InventoryView _playerInventoryWindow;
 
+    private void OnEnable()
+    {
+        InventoryController.OnPlayerSellItem += AddItemToShop;
+    }
+
     private void OnDestroy()
     {
         _interactiveShop.SetItems(_itemsForSale);
 
-        _playerInventoryWindow.OnPlayerSellItem -= AddItemToShop;
+        InventoryController.OnPlayerSellItem -= AddItemToShop;
     }
 
     public void Initialize(InteractiveShop shop)
@@ -36,13 +41,6 @@ public class ShopView : MonoBehaviour
     public void SetPlayerMoney(PlayerMoneyController playerMoney)
     {
         _playerMoney = playerMoney;
-    }
-
-    public void SetInventoryWindow(InventoryView inventoryWindow)
-    {
-        _playerInventoryWindow = inventoryWindow;
-
-        _playerInventoryWindow.OnPlayerSellItem += AddItemToShop;
     }
 
     private void AddItemToShop(EquipmentData item)

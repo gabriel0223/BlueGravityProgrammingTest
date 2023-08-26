@@ -8,9 +8,7 @@ using UnityEngine.UI;
 
 public class InventoryView : MonoBehaviour
 {
-    public event Action<EquipmentData> OnPlayerEquipItem;
-    public event Action<EquipmentData> OnPlayerSellItem;
-
+    [SerializeField] private InventoryController _inventoryController;
     [SerializeField] private Transform _itemSelector;
     [SerializeField] private ItemInfoWindow _itemInfoWindow;
     [SerializeField] private InventorySlotView[] _inventorySlots;
@@ -23,13 +21,38 @@ public class InventoryView : MonoBehaviour
 
     public bool IsDraggingItem => _isDraggingItem;
 
+    private void Awake()
+    {
+        Initialize();
+    }
+
     void Update()
     {
         _itemSelector.position = Mouse.current.position.ReadValue();
     }
 
-    public void Initialize()
+    private void OnDisable()
     {
+        OnClose();
+    }
+
+    private void OnDestroy()
+    {
+        ShopView.OnPlayerBuyItem -= AddItem;
+    }
+
+    private void Initialize()
+    {
+        foreach (EquipmentData item in _inventoryController.Inventory)
+        {
+            AddItem(item);
+        }
+
+        foreach (EquipmentData equipment in _inventoryController.EquippedItems.Values)
+        {
+            AddEquipment(equipment);
+        }
+
         ShopView.OnPlayerBuyItem += AddItem;
 
         foreach (InventorySlotView slot in _inventorySlots)
@@ -45,24 +68,14 @@ public class InventoryView : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        OnClose();
-    }
-
-    private void OnDestroy()
-    {
-        ShopView.OnPlayerBuyItem -= AddItem;
-    }
-
-    public void AddItem(EquipmentData equipmentData)
+    private void AddItem(EquipmentData equipmentData)
     {
         InventorySlotView emptySlot = GetFirstEmptySlot();
 
         emptySlot.AddItem(equipmentData, false);
     }
 
-    public void AddEquipment(EquipmentData equipmentData)
+    private void AddEquipment(EquipmentData equipmentData)
     {
         EquipmentSlotView equipmentSlot = _equipmentSlots.First(slot => slot.GetEquipmentType() == equipmentData.equipmentType);
 
@@ -127,7 +140,7 @@ public class InventoryView : MonoBehaviour
         EquipmentData itemToBeSold = slot.GetItem();
 
         slot.RemoveItem();
-        OnPlayerSellItem?.Invoke(itemToBeSold);
+        _inventoryController.SellItem(itemToBeSold);
     }
 
     private void SelectEquipmentSlot(EquipmentSlotView slot)
@@ -150,7 +163,7 @@ public class InventoryView : MonoBehaviour
 
         AudioManager.instance.Play(Sounds.DeselectItem);
 
-        OnPlayerEquipItem?.Invoke(slot.GetItem());
+        _inventoryController.EquipItem(slot.GetItem());
     }
 
     private void GrabItemFromSlot(InventorySlotView slot)
@@ -194,7 +207,7 @@ public class InventoryView : MonoBehaviour
         _currentSelectedItem = secondSlotItem;
     }
 
-    public InventorySlotView GetFirstEmptySlot()
+    private InventorySlotView GetFirstEmptySlot()
     {
         return _inventorySlots.First(s => !s.IsOccupied());
     }
