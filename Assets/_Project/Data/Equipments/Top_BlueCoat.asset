@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9012ebbb36ce6a942b71cd40196f7213, type: 3}
-  m_Name: Bottom02
+  m_Name: Top_BlueCoat
   m_EditorClassIdentifier: 
-  name: Warrior pants
-  purchasePrice: 300
-  sellingPrice: 150
-  description: So furious.
-  equipmentType: 3
-  equipmentSprite: {fileID: 21300000, guid: b1babcb6ce4ee78478abc5076a6d1b8d, type: 3}
+  name: Blue Coat
+  purchasePrice: 200
+  sellingPrice: 100
+  description: I feel like a rogue pacifist wearing this.
+  equipmentType: 2
+  equipmentSprite: {fileID: 21300000, guid: 124013dbba7f284489ac16156c930131, type: 3}

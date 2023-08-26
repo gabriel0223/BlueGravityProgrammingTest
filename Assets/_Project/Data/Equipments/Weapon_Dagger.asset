@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9012ebbb36ce6a942b71cd40196f7213, type: 3}
-  m_Name: Hood01
+  m_Name: Weapon_Dagger
   m_EditorClassIdentifier: 
-  name: Orange Hood
+  name: Dagger
   purchasePrice: 100
   sellingPrice: 50
-  description: A dull orange hood, just like Phill's.
-  equipmentType: 1
-  equipmentSprite: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
+  description: Looks so fake.
+  equipmentType: 4
+  equipmentSprite: {fileID: 21300000, guid: f8d916881a19b7a4a99ec74753414a40, type: 3}

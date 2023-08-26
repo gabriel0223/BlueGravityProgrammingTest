@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9012ebbb36ce6a942b71cd40196f7213, type: 3}
-  m_Name: Top01
+  m_Name: Weapon_WarriorSword
   m_EditorClassIdentifier: 
-  name: Orange Coat
-  purchasePrice: 100
-  sellingPrice: 50
-  description: Boring orange coat.
-  equipmentType: 2
-  equipmentSprite: {fileID: 21300000, guid: 215dd6c48c732d744aecd29e7fecbbfa, type: 3}
+  name: Warrior sword
+  purchasePrice: 300
+  sellingPrice: 150
+  description: Definitely gonna impress some kids passing by.
+  equipmentType: 4
+  equipmentSprite: {fileID: 21300000, guid: 97ad91e8b9bc5f94f941f06a70776c26, type: 3}
