@@ -11,10 +11,9 @@ public class ShopView : MonoBehaviour
     [SerializeField] private Purchasable _purchasablePrefab;
     [SerializeField] private Transform _purchasableScrollList;
 
-    private List<EquipmentData> _itemsForSale = new List<EquipmentData>();
+    private readonly List<EquipmentData> _itemsForSale = new();
     private InteractiveShop _interactiveShop;
     private PlayerMoneyController _playerMoney;
-    private InventoryView _playerInventoryWindow;
 
     private void OnEnable()
     {
